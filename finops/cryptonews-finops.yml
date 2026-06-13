@@ -1,0 +1,42 @@
+name: CryptoNews API FinOps
+description: Financial operations guidance for managing CryptoNews API costs and usage.
+url: https://cryptonews-api.com/pricing
+recommendations:
+  - category: Cost Optimization
+    items:
+      - Use the 5-day free trial (100 calls) to validate integration before committing to a paid plan.
+      - Start with the Basic plan ($19.99/month) for non-commercial or exploratory projects.
+      - Cache responses locally for up to 1 hour to minimize repeated API calls, respecting the default cache TTL.
+      - Use the nocache parameter sparingly as it increases call volume.
+      - Batch requests using the items parameter (up to 100 results per call) to maximize data per API call.
+      - Filter results server-side using source, sentiment, and topic parameters to reduce unnecessary calls.
+  - category: Plan Selection
+    items:
+      - Basic ($19.99/month, 20,000 calls): Suitable for personal projects, research, or non-commercial dashboards.
+      - Premium ($29.99/month, 30,000 calls): Required for commercial apps needing price data, whale tracking, or sentiment analytics.
+      - Business (custom): For high-volume production systems needing SLAs and dedicated support.
+  - category: Usage Monitoring
+    items:
+      - Track monthly API call consumption against your plan's limit to avoid overages.
+      - Monitor the metadata parameter in responses for usage statistics when available.
+      - Implement client-side rate limiting to distribute calls evenly across the month.
+      - Contact support proactively if usage approaches plan limits to negotiate Business plan terms.
+  - category: Cost Estimation
+    items:
+      - Basic plan effective cost per call: ~$0.001 (at 20,000 calls/month)
+      - Premium plan effective cost per call: ~$0.001 (at 30,000 calls/month)
+      - Historical data access (from December 2020) is included at no extra cost on Premium.
+      - Whale and price data endpoints count toward monthly call totals; budget accordingly.
+cost_summary:
+  - plan: Basic
+    monthly_cost_usd: 19.99
+    included_calls: 20000
+    cost_per_call_usd: 0.001
+  - plan: Premium
+    monthly_cost_usd: 29.99
+    included_calls: 30000
+    cost_per_call_usd: 0.001
+  - plan: Business
+    monthly_cost_usd: custom
+    included_calls: custom
+    cost_per_call_usd: negotiated

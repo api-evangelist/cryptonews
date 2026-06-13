@@ -1,0 +1,59 @@
+name: CryptoNews API Rate Limits
+description: Rate limits and throttling policies for CryptoNews API (cryptonews-api.com).
+url: https://cryptonews-api.com/documentation
+limits:
+  - plan: Free Trial
+    period: trial
+    calls: 100
+    notes: Total calls during 5-day trial period. Access to all features.
+  - plan: Basic
+    period: monthly
+    calls: 20000
+    notes: 20,000 calls per month. Pagination limited to 5 pages (500 results) per query.
+  - plan: Premium
+    period: monthly
+    calls: 30000
+    notes: 30,000 calls per month. Includes access to all endpoints.
+  - plan: Business
+    period: monthly
+    calls: custom
+    notes: Custom call volume negotiated per contract.
+caching:
+  - endpoint: General endpoints
+    ttl: 3600
+    unit: seconds
+    notes: 1-hour cache by default. Can be bypassed with nocache parameter on eligible endpoints.
+data_freshness:
+  - data_type: Crypto Prices
+    update_frequency: 900
+    unit: seconds
+    notes: Delayed pricing data updated every 15 minutes for 600+ cryptocurrencies.
+  - data_type: Whale Transactions
+    update_frequency: 300
+    unit: seconds
+    notes: Large transaction data updated every 5 minutes across BTC, ETH, SOL, and TRON.
+  - data_type: Uptime Monitoring
+    update_frequency: 300
+    unit: seconds
+    notes: Service uptime checked every 5 minutes.
+pagination:
+  - plan: Basic
+    max_pages: 5
+    items_per_page: 100
+    max_results: 500
+  - plan: Premium
+    max_pages: unlimited
+    items_per_page: 100
+    notes: No page limit on Premium and Business plans.
+authentication:
+  type: API Key (token)
+  notes: API token provided upon registration. Must be included in all requests.
+whale_thresholds:
+  - blockchain: Bitcoin (BTC)
+    min_transaction_usd: 1000000
+  - blockchain: Ethereum (ETH)
+    min_transaction_usd: 500000
+  - blockchain: ERC-20 Tokens
+    min_transaction_usd: 1000000
+  - blockchain: Tron (TRON)
+    min_transaction_usd: 100000

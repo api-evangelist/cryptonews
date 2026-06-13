@@ -1,0 +1,57 @@
+name: CryptoNews API Plans and Pricing
+description: Pricing plans for CryptoNews API (cryptonews-api.com) providing cryptocurrency news, sentiment analysis, and market data.
+url: https://cryptonews-api.com/pricing
+plans:
+  - name: Free Trial
+    description: No-risk trial with access to all features for the first 5 days.
+    price: 0
+    currency: USD
+    period: trial
+    features:
+      - 100 API calls total
+      - Access to all features during trial period
+      - 5-day trial window
+  - name: Basic
+    description: Recommended for crypto enthusiasts requiring the API for non-commercial projects.
+    price: 19.99
+    currency: USD
+    period: monthly
+    features:
+      - 20,000 API calls per month
+      - Individual coin ticker news
+      - General crypto news
+      - Filter by news sources
+      - Filter by article type (video or article)
+      - Filter by sentiment (positive, negative, neutral)
+      - Sort by rank
+      - CSV export
+      - Limited to 5 pages (500 news results per query)
+  - name: Premium
+    description: For commercial use with extended features including market data and analytics.
+    price: 29.99
+    currency: USD
+    period: monthly
+    features:
+      - 30,000 API calls per month
+      - All coin ticker news
+      - Delayed crypto prices for 600+ coins (updated every 15 minutes)
+      - Whale transaction tracking (BTC, ETH, SOL, TRON)
+      - Top mentioned crypto tickers
+      - Sentiment analysis scores
+      - Trending headlines and events
+      - Historical data (from December 2020)
+      - All Basic plan features
+  - name: Business
+    description: Enterprise plan for high-volume commercial use with dedicated support and custom terms.
+    price: custom
+    currency: USD
+    period: monthly
+    features:
+      - Custom API call volume
+      - Premium technical support
+      - Flexible billing options
+      - Dedicated account manager
+      - SLA guarantee
+      - Optional custom terms of service
+      - Volume discounts
+      - All Premium plan features

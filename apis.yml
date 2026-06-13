@@ -1,0 +1,62 @@
+aid: cryptonews
+name: CryptoNews API
+description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/cryptonews/refs/heads/main/apis.yml
+created: 2026-06-13
+modified: 2026-06-13
+specificationVersion: '0.19'
+tags:
+  - Cryptocurrency
+  - News
+  - Sentiment Analysis
+  - Bitcoin
+  - Market Data
+  - Whale Transactions
+  - Crypto Prices
+apis:
+  - aid: cryptonews:cryptonews-api
+    name: CryptoNews REST API
+    description: JSON REST API providing cryptocurrency news articles, videos, sentiment analysis, delayed crypto prices, whale transaction tracking, and trending headlines aggregated from 50+ sources.
+    humanURL: https://cryptonews-api.com/
+    baseURL: https://cryptonews-api.com/api/v1
+    tags:
+      - Cryptocurrency News
+      - Sentiment Analysis
+      - Market Data
+      - Whale Transactions
+    properties:
+      - type: Documentation
+        url: https://cryptonews-api.com/documentation
+      - type: Pricing
+        url: https://cryptonews-api.com/pricing
+      - type: TermsOfService
+        url: https://cryptonews-api.com/termsandconditions
+      - type: FAQ
+        url: https://cryptonews-api.com/faq
+common:
+  - type: Website
+    url: https://cryptonews-api.com/
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: Blog
+    url: https://cryptonews-api.com/blog
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: PrivacyPolicy
+    url: https://cryptonews-api.com/privacypolicy
+  - type: X
+    url: https://x.com/cryptonewsapi
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/cryptonews/refs/heads/main/plans/cryptonews-plans-pricing.yml
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/cryptonews/refs/heads/main/rate-limits/cryptonews-rate-limits.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/cryptonews/refs/heads/main/finops/cryptonews-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
