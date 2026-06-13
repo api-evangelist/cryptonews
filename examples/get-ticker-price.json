@@ -1,0 +1,39 @@
+{
+  "data": {
+    "BTC": {
+      "ticker": "BTC",
+      "price": 70028.45,
+      "price_change_percentage_24h": 2.34,
+      "market_cap": 1379504250000,
+      "volume_24h": 28430000000
+    },
+    "ETH": {
+      "ticker": "ETH",
+      "price": 3601.22,
+      "price_change_percentage_24h": 1.87,
+      "market_cap": 432950000000,
+      "volume_24h": 14800000000
+    },
+    "SOL": {
+      "ticker": "SOL",
+      "price": 172.55,
+      "price_change_percentage_24h": -0.42,
+      "market_cap": 79500000000,
+      "volume_24h": 3200000000
+    },
+    "DOGE": {
+      "ticker": "DOGE",
+      "price": 0.1623,
+      "price_change_percentage_24h": 3.11,
+      "market_cap": 23520000000,
+      "volume_24h": 1450000000
+    },
+    "XRP": {
+      "ticker": "XRP",
+      "price": 0.5842,
+      "price_change_percentage_24h": 0.95,
+      "market_cap": 32150000000,
+      "volume_24h": 1980000000
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cryptonews/main/json-schema/whale-transaction.json",
+  "title": "Whale Transaction",
+  "description": "A large on-chain cryptocurrency transaction tracked by the CryptoNews API.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the transaction."
+    },
+    "blockchain": {
+      "type": "string",
+      "description": "Blockchain network the transaction occurred on (e.g. Bitcoin, Ethereum)."
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Cryptocurrency ticker symbol (e.g. BTC, ETH)."
+    },
+    "transaction_type": {
+      "type": "string",
+      "description": "Type of transaction (e.g. transfer, exchange deposit, exchange withdrawal)."
+    },
+    "from": {
+      "type": "string",
+      "description": "Sender address or label."
+    },
+    "to": {
+      "type": "string",
+      "description": "Recipient address or label."
+    },
+    "amount": {
+      "type": "number",
+      "description": "Transaction amount in cryptocurrency units."
+    },
+    "amount_usd": {
+      "type": "number",
+      "description": "Transaction amount in USD at time of transaction."
+    },
+    "timestamp": {
+      "type": "integer",
+      "description": "Unix timestamp of the transaction."
+    }
+  },
+  "required": ["symbol", "amount", "amount_usd", "timestamp"]
+}

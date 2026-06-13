@@ -32,6 +32,8 @@ apis:
         url: https://cryptonews-api.com/pricing
       - type: TermsOfService
         url: https://cryptonews-api.com/termsandconditions
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/cryptonews/refs/heads/main/openapi/openapi.yml
       - type: FAQ
         url: https://cryptonews-api.com/faq
 common:

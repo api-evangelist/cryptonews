@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cryptonews/main/json-schema/news-article.json",
+  "title": "CryptoNews Article",
+  "description": "A cryptocurrency news article returned by the CryptoNews API.",
+  "type": "object",
+  "properties": {
+    "news_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the original news article."
+    },
+    "image_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the article's featured image."
+    },
+    "title": {
+      "type": "string",
+      "description": "Headline title of the news article."
+    },
+    "text": {
+      "type": "string",
+      "description": "Summary or excerpt text of the article."
+    },
+    "source_name": {
+      "type": "string",
+      "description": "Name of the news source."
+    },
+    "date": {
+      "type": "string",
+      "description": "Publication date and time of the article."
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of topics associated with the article."
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["Positive", "Negative", "Neutral"],
+      "description": "AI-computed sentiment classification for the article."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of news content (Article, Video, etc.)."
+    },
+    "tickers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Cryptocurrency ticker symbols mentioned in the article."
+    }
+  },
+  "required": ["title", "news_url", "source_name", "date"]
+}

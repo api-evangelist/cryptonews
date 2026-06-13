@@ -1,0 +1,66 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "cryptonews": "https://cryptonews-api.com/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "NewsArticle": "schema:NewsArticle",
+    "WhaleTransaction": "cryptonews:WhaleTransaction",
+    "TickerPrice": "cryptonews:TickerPrice",
+    "CryptoEvent": "schema:Event",
+    "TickerInfo": "cryptonews:TickerInfo",
+
+    "news_url": { "@id": "schema:url", "@type": "@id" },
+    "image_url": { "@id": "schema:image", "@type": "@id" },
+    "title": "schema:headline",
+    "text": "schema:articleBody",
+    "source_name": "schema:publisher",
+    "date": { "@id": "schema:datePublished", "@type": "xsd:dateTime" },
+    "topics": "schema:about",
+    "sentiment": "cryptonews:sentiment",
+    "type": "schema:encodingFormat",
+    "tickers": "cryptonews:ticker",
+
+    "blockchain": "cryptonews:blockchain",
+    "symbol": "cryptonews:symbol",
+    "transaction_type": "cryptonews:transactionType",
+    "from": "cryptonews:sender",
+    "to": "cryptonews:recipient",
+    "amount": "cryptonews:amount",
+    "amount_usd": "cryptonews:amountUSD",
+    "timestamp": { "@id": "schema:startDate", "@type": "xsd:integer" },
+    "min_amount": "cryptonews:minimumAmount",
+
+    "ticker": "cryptonews:tickerSymbol",
+    "price": "cryptonews:price",
+    "price_change_percentage_24h": "cryptonews:priceChange24h",
+    "market_cap": "cryptonews:marketCap",
+    "volume_24h": "cryptonews:volume24h",
+
+    "total_transactions": "cryptonews:totalTransactions",
+    "total_volume_usd": "cryptonews:totalVolumeUSD",
+    "largest_transaction_usd": "cryptonews:largestTransactionUSD",
+    "exchange_inflow_usd": "cryptonews:exchangeInflowUSD",
+    "exchange_outflow_usd": "cryptonews:exchangeOutflowUSD",
+
+    "mention_count": "cryptonews:mentionCount",
+    "sentiment_score": "cryptonews:sentimentScore",
+
+    "positive": "cryptonews:positiveCount",
+    "negative": "cryptonews:negativeCount",
+    "neutral": "cryptonews:neutralCount",
+
+    "name": "schema:name",
+    "logo": { "@id": "schema:logo", "@type": "@id" },
+    "description": "schema:description",
+
+    "total_pages": "cryptonews:totalPages",
+    "count": "schema:totalItems",
+    "data": "schema:itemListElement",
+    "page": "cryptonews:page",
+    "items": "cryptonews:itemsPerPage",
+    "section": "cryptonews:section",
+    "token": "cryptonews:apiToken"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "news_url": "https://example.com/bitcoin-hits-new-high",
+      "image_url": "https://example.com/images/bitcoin.jpg",
+      "title": "Bitcoin Hits New All-Time High as Institutional Demand Surges",
+      "text": "Bitcoin surged to a new record high on Tuesday as institutional demand continues to grow, with major asset managers increasing their BTC allocations.",
+      "source_name": "CoinDesk",
+      "date": "Tue, 13 Jun 2026 08:00:00 -0400",
+      "topics": ["Bitcoin", "Institutional Investment", "Market Analysis"],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": ["BTC"]
+    },
+    {
+      "news_url": "https://example.com/ethereum-upgrade",
+      "image_url": "https://example.com/images/ethereum.jpg",
+      "title": "Ethereum Network Upgrade Scheduled for Next Month",
+      "text": "The Ethereum Foundation has announced the next major network upgrade, promising improved scalability and reduced gas fees.",
+      "source_name": "CryptoSlate",
+      "date": "Tue, 13 Jun 2026 07:30:00 -0400",
+      "topics": ["Ethereum", "Network Upgrade", "Gas Fees"],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": ["ETH"]
+    },
+    {
+      "news_url": "https://example.com/xrp-sec-update",
+      "image_url": "https://example.com/images/xrp.jpg",
+      "title": "XRP Legal Case Sees New Developments",
+      "text": "The ongoing regulatory case involving XRP has seen new filings that analysts say could affect the outcome significantly.",
+      "source_name": "The Block",
+      "date": "Tue, 13 Jun 2026 06:45:00 -0400",
+      "topics": ["XRP", "Regulation", "Legal"],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": ["XRP"]
+    }
+  ],
+  "total_pages": 10,
+  "count": 500
+}

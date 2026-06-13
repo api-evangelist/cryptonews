@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cryptonews/main/json-schema/ticker-price.json",
+  "title": "Ticker Price",
+  "description": "Delayed cryptocurrency price data for a single ticker from the CryptoNews API.",
+  "type": "object",
+  "properties": {
+    "ticker": {
+      "type": "string",
+      "description": "Cryptocurrency ticker symbol (e.g. BTC, ETH, SOL)."
+    },
+    "price": {
+      "type": "number",
+      "description": "Current delayed price in USD."
+    },
+    "price_change_percentage_24h": {
+      "type": "number",
+      "description": "Percentage price change over the last 24 hours."
+    },
+    "market_cap": {
+      "type": "number",
+      "description": "Market capitalization in USD."
+    },
+    "volume_24h": {
+      "type": "number",
+      "description": "24-hour trading volume in USD."
+    }
+  },
+  "required": ["ticker", "price"]
+}

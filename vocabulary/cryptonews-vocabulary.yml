@@ -1,0 +1,123 @@
+vocabulary:
+  title: CryptoNews API Vocabulary
+  description: >-
+    Definitions of key terms and concepts used in the CryptoNews API,
+    including domain terminology for cryptocurrency news, sentiment analysis,
+    whale transactions, and market data.
+  terms:
+    - term: ticker
+      definition: >-
+        A short abbreviation used to uniquely identify a cryptocurrency
+        (e.g. BTC for Bitcoin, ETH for Ethereum, XRP for Ripple).
+      example: BTC, ETH, SOL, DOGE, XRP
+
+    - term: sentiment
+      definition: >-
+        AI-computed classification of the emotional tone of a news article
+        relative to cryptocurrency markets. Values are Positive, Negative,
+        or Neutral.
+      values:
+        - Positive
+        - Negative
+        - Neutral
+
+    - term: whale transaction
+      definition: >-
+        A large on-chain cryptocurrency transaction, typically involving
+        millions of USD in value, that may indicate significant market
+        participant activity. Tracked as signals of market movement.
+
+    - term: whale summary
+      definition: >-
+        An aggregated overview of whale transaction activity for a given
+        ticker over a specified time period, including total volume,
+        exchange inflows/outflows, and largest transaction size.
+
+    - term: tickers-include
+      definition: >-
+        A query parameter filter that returns only articles mentioning
+        all of the specified tickers simultaneously. More restrictive
+        than the tickers parameter which matches any of the listed tickers.
+
+    - term: tickers-only
+      definition: >-
+        A query parameter filter that returns only articles focused
+        exclusively on the specified ticker, excluding articles that
+        mention other tickers alongside it.
+
+    - term: section
+      definition: >-
+        A category grouping for news articles. 'general' returns broad
+        cryptocurrency news not tied to specific tickers. 'alltickers'
+        returns news associated with any cryptocurrency ticker.
+      values:
+        - general
+        - alltickers
+
+    - term: date range
+      definition: >-
+        A relative time window for filtering data. Supported values
+        represent lookback periods from the current time.
+      values:
+        - last24hours
+        - last7days
+        - last30days
+
+    - term: delayed pricing
+      definition: >-
+        Cryptocurrency price data that is not real-time but updated on
+        a delayed basis. The CryptoNews API provides delayed prices for
+        600+ coins, not live streaming quotes.
+
+    - term: top mention
+      definition: >-
+        A ranking of cryptocurrency tickers by the frequency with which
+        they appear in news articles over a specified time period, used
+        to identify trending assets.
+
+    - term: sundown digest
+      definition: >-
+        A curated daily summary of the most important cryptocurrency
+        news stories, compiled and presented as a digest format for
+        end-of-day consumption.
+
+    - term: trending headlines
+      definition: >-
+        News headlines that are gaining the most traction and attention
+        across the aggregated news sources at any given time, optionally
+        filterable by ticker symbol.
+
+    - term: events
+      definition: >-
+        Scheduled cryptocurrency-related events including conferences,
+        network upgrades, hard forks, token unlocks, and other notable
+        calendar items.
+
+    - term: sentiment statistics
+      definition: >-
+        Aggregated counts and trends of positive, negative, and neutral
+        news sentiment over a specified time period, either for general
+        crypto news or for specific ticker symbols.
+
+    - term: source_name
+      definition: >-
+        The name of the media outlet or website that published a news
+        article. The CryptoNews API aggregates content from 50+ sources.
+
+    - term: exchange deposit
+      definition: >-
+        A whale transaction where cryptocurrency is moved from a private
+        wallet to a centralized exchange, often interpreted as a potential
+        sell signal.
+
+    - term: exchange withdrawal
+      definition: >-
+        A whale transaction where cryptocurrency is moved from a
+        centralized exchange to a private wallet, often interpreted as
+        a long-term holding or accumulation signal.
+
+    - term: tickersdbv2
+      definition: >-
+        The second version of the supported tickers database endpoint,
+        providing a full list of all cryptocurrency ticker symbols and
+        their associated metadata available within the API.
