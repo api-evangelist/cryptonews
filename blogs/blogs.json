@@ -1,0 +1,14 @@
+{
+  "repo": "cryptonews",
+  "feeds": [
+    {
+      "source": "https://cryptonews-api.com/pricing",
+      "feed_url": "https://cryptonews-api.com/pricing",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-14T20:42:17Z"
+}
