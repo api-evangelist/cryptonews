@@ -2,13 +2,12 @@
   "repo": "cryptonews",
   "feeds": [
     {
-      "source": "https://cryptonews-api.com/pricing",
-      "feed_url": "https://cryptonews-api.com/pricing",
-      "title": "",
+      "source": "https://cryptonews-api.com/blog",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
+      "error": "connection refused (ECONNREFUSED)"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:35:21Z"
 }
