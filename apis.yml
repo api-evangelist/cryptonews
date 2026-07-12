@@ -37,6 +37,10 @@ apis:
       - type: FAQ
         url: https://cryptonews-api.com/faq
 common:
+  - type: DomainSecurity
+    url: security/cryptonews-domain-security.yml
+  - type: Authentication
+    url: authentication/cryptonews-authentication.yml
   - type: Website
     url: https://cryptonews-api.com/
   - type: Documentation
