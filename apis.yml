@@ -37,6 +37,8 @@ apis:
       - type: FAQ
         url: https://cryptonews-api.com/faq
 common:
+  - type: AgenticAccess
+    url: agentic-access/cryptonews-agentic-access.yml
   - type: DomainSecurity
     url: security/cryptonews-domain-security.yml
   - type: Authentication
