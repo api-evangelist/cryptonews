@@ -1,0 +1,214 @@
+openapi: 3.0.3
+info:
+  title: CryptoNews Account News API
+  description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
+  version: '1'
+  contact:
+    url: https://cryptonews-api.com/
+  termsOfService: https://cryptonews-api.com/termsandconditions
+servers:
+- url: https://cryptonews-api.com/api/v1
+  description: Production server
+security:
+- tokenAuth: []
+tags:
+- name: News
+  description: Cryptocurrency news articles aggregated from 50+ sources
+paths:
+  /:
+    get:
+      summary: Get Crypto News
+      operationId: getCryptoNews
+      description: Retrieve cryptocurrency news articles from 50+ sources. Filter by ticker symbol, include or exclude tickers, control pagination and item count per page.
+      tags:
+      - News
+      parameters:
+      - name: tickers
+        in: query
+        description: Comma-separated list of cryptocurrency ticker symbols to filter news by (e.g. BTC,ETH,XRP).
+        schema:
+          type: string
+          example: BTC,ETH,XRP
+      - name: tickers-include
+        in: query
+        description: Return only articles that mention all of the specified tickers (comma-separated). Stricter than tickers.
+        schema:
+          type: string
+          example: BTC,ETH,XRP
+      - name: tickers-only
+        in: query
+        description: Return only articles that mention exclusively the specified ticker and no other tickers.
+        schema:
+          type: string
+          example: BTC
+      - name: items
+        in: query
+        description: Number of news articles to return per page (max 50).
+        schema:
+          type: integer
+          default: 50
+          maximum: 50
+          example: 50
+      - name: page
+        in: query
+        description: Page number for pagination (starts at 1).
+        schema:
+          type: integer
+          default: 1
+          example: 1
+      - name: token
+        in: query
+        description: API authentication token.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with news articles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+        '429':
+          description: Rate limit exceeded
+  /events:
+    get:
+      summary: Get Crypto Events
+      operationId: getCryptoEvents
+      description: Retrieve cryptocurrency events such as conferences, hard forks, and other scheduled events. Optionally filter by ticker symbol.
+      tags:
+      - News
+      parameters:
+      - name: tickers
+        in: query
+        description: Cryptocurrency ticker to filter events by.
+        schema:
+          type: string
+          example: BTC
+      - name: page
+        in: query
+        description: Page number for pagination.
+        schema:
+          type: integer
+          default: 1
+          example: 1
+      - name: token
+        in: query
+        required: true
+        description: API authentication token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with crypto events
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventsResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    CryptoEvent:
+      type: object
+      description: A scheduled cryptocurrency event
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the event
+        title:
+          type: string
+          description: Title of the event
+        description:
+          type: string
+          description: Description of the event
+        date:
+          type: string
+          description: Date of the event
+        tickers:
+          type: array
+          items:
+            type: string
+          description: Related cryptocurrency tickers
+        source:
+          type: string
+          description: Source of the event information
+    EventsResponse:
+      type: object
+      description: Response containing cryptocurrency events
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CryptoEvent'
+        total_pages:
+          type: integer
+          description: Total number of pages available
+    NewsArticle:
+      type: object
+      description: A cryptocurrency news article
+      properties:
+        news_url:
+          type: string
+          format: uri
+          description: URL of the original news article
+        image_url:
+          type: string
+          format: uri
+          description: URL of the article's featured image
+        title:
+          type: string
+          description: Headline title of the news article
+        text:
+          type: string
+          description: Summary or excerpt text of the article
+        source_name:
+          type: string
+          description: Name of the news source
+        date:
+          type: string
+          description: Publication date and time of the article
+        topics:
+          type: array
+          items:
+            type: string
+          description: List of topics associated with the article
+        sentiment:
+          type: string
+          enum:
+          - Positive
+          - Negative
+          - Neutral
+          description: AI-computed sentiment classification for the article
+        type:
+          type: string
+          description: Type of news content (article, video, etc.)
+        tickers:
+          type: array
+          items:
+            type: string
+          description: Cryptocurrency tickers mentioned in the article
+    NewsResponse:
+      type: object
+      description: Response containing a list of cryptocurrency news articles
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewsArticle'
+        total_pages:
+          type: integer
+          description: Total number of pages available
+        count:
+          type: integer
+          description: Total count of articles available
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: query
+      name: token
+      description: API key passed as a query parameter named 'token'

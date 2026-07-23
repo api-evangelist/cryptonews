@@ -1,0 +1,84 @@
+openapi: 3.0.3
+info:
+  title: CryptoNews Account Prices API
+  description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
+  version: '1'
+  contact:
+    url: https://cryptonews-api.com/
+  termsOfService: https://cryptonews-api.com/termsandconditions
+servers:
+- url: https://cryptonews-api.com/api/v1
+  description: Production server
+security:
+- tokenAuth: []
+tags:
+- name: Prices
+  description: Delayed cryptocurrency pricing data
+paths:
+  /ticker-price:
+    get:
+      summary: Get Delayed Ticker Prices
+      operationId: getTickerPrice
+      description: Retrieve delayed cryptocurrency price data for one or more tickers. Supports 600+ coins. Prices are delayed (not real-time).
+      tags:
+      - Prices
+      parameters:
+      - name: tickers
+        in: query
+        description: Comma-separated list of ticker symbols to get prices for. If omitted, returns all available tickers.
+        schema:
+          type: string
+          example: BTC,ETH,SOL,DOGE,XRP
+      - name: token
+        in: query
+        required: true
+        description: API authentication token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with delayed ticker prices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TickerPriceResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    TickerPrice:
+      type: object
+      description: Delayed price data for a single cryptocurrency ticker
+      properties:
+        ticker:
+          type: string
+          description: Cryptocurrency ticker symbol
+        price:
+          type: number
+          description: Current delayed price in USD
+        price_change_percentage_24h:
+          type: number
+          description: Percentage price change over last 24 hours
+        market_cap:
+          type: number
+          description: Market capitalization in USD
+        volume_24h:
+          type: number
+          description: 24-hour trading volume in USD
+    TickerPriceResponse:
+      type: object
+      description: Response containing delayed ticker prices
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TickerPrice'
+          description: Map of ticker symbol to price data
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: query
+      name: token
+      description: API key passed as a query parameter named 'token'

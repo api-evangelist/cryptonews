@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: CryptoNews Account Sentiment & Stats API
+  description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
+  version: '1'
+  contact:
+    url: https://cryptonews-api.com/
+  termsOfService: https://cryptonews-api.com/termsandconditions
+servers:
+- url: https://cryptonews-api.com/api/v1
+  description: Production server
+security:
+- tokenAuth: []
+tags:
+- name: Sentiment & Stats
+  description: Sentiment analysis and statistical summaries
+paths:
+  /stat:
+    get:
+      summary: Get Sentiment Statistics
+      operationId: getSentimentStats
+      description: Retrieve AI-powered sentiment analysis statistics for cryptocurrency news. Filter by section (general or alltickers) or specific ticker, and specify a date range.
+      tags:
+      - Sentiment & Stats
+      parameters:
+      - name: section
+        in: query
+        description: Section to get stats for. Use 'general' or 'alltickers'. Mutually exclusive with tickers parameter.
+        schema:
+          type: string
+          enum:
+          - general
+          - alltickers
+          example: general
+      - name: tickers
+        in: query
+        description: Comma-separated ticker symbols to get stats for. Mutually exclusive with section parameter.
+        schema:
+          type: string
+          example: BTC
+      - name: date
+        in: query
+        description: Date range for sentiment statistics.
+        schema:
+          type: string
+          enum:
+          - last24hours
+          - last7days
+          - last30days
+          example: last30days
+      - name: page
+        in: query
+        description: Page number for pagination.
+        schema:
+          type: integer
+          default: 1
+          example: 1
+      - name: token
+        in: query
+        required: true
+        description: API authentication token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with sentiment statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    StatResponse:
+      type: object
+      description: Response containing sentiment analysis statistics
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                description: Date for the stat entry
+              positive:
+                type: integer
+                description: Count of positive sentiment articles
+              negative:
+                type: integer
+                description: Count of negative sentiment articles
+              neutral:
+                type: integer
+                description: Count of neutral sentiment articles
+              ticker:
+                type: string
+                description: Ticker symbol if filtered by ticker
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: query
+      name: token
+      description: API key passed as a query parameter named 'token'

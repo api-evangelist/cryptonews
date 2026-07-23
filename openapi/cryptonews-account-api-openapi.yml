@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: CryptoNews Account API
+  description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
+  version: '1'
+  contact:
+    url: https://cryptonews-api.com/
+  termsOfService: https://cryptonews-api.com/termsandconditions
+servers:
+- url: https://cryptonews-api.com/api/v1
+  description: Production server
+security:
+- tokenAuth: []
+tags:
+- name: Account
+  description: Account and reference data
+paths:
+  /account/tickersdbv2:
+    get:
+      summary: Get Supported Tickers Database
+      operationId: getSupportedTickers
+      description: Retrieve the full database of supported cryptocurrency tickers available in the API.
+      tags:
+      - Account
+      parameters:
+      - name: token
+        in: query
+        required: true
+        description: API authentication token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with supported tickers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TickersDbResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    TickersDbResponse:
+      type: object
+      description: Response containing the supported tickers database
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TickerInfo'
+          description: List of all supported cryptocurrency tickers
+    TickerInfo:
+      type: object
+      description: Information about a supported cryptocurrency ticker
+      properties:
+        ticker:
+          type: string
+          description: Cryptocurrency ticker symbol
+        name:
+          type: string
+          description: Full name of the cryptocurrency
+        logo:
+          type: string
+          format: uri
+          description: URL of the cryptocurrency logo
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: query
+      name: token
+      description: API key passed as a query parameter named 'token'

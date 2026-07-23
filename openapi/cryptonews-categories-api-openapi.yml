@@ -1,0 +1,133 @@
+openapi: 3.0.3
+info:
+  title: CryptoNews Account Categories API
+  description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
+  version: '1'
+  contact:
+    url: https://cryptonews-api.com/
+  termsOfService: https://cryptonews-api.com/termsandconditions
+servers:
+- url: https://cryptonews-api.com/api/v1
+  description: Production server
+security:
+- tokenAuth: []
+tags:
+- name: Categories
+  description: News by category or sector
+paths:
+  /category:
+    get:
+      summary: Get News by Category
+      operationId: getNewsByCategory
+      description: Retrieve cryptocurrency news articles filtered by category section. Use section=general for general crypto news or section=alltickers for all ticker-based news.
+      tags:
+      - Categories
+      parameters:
+      - name: section
+        in: query
+        required: true
+        description: Category section to filter by. Use 'general' for general crypto news or 'alltickers' for all ticker news.
+        schema:
+          type: string
+          enum:
+          - general
+          - alltickers
+          example: general
+      - name: items
+        in: query
+        description: Number of news articles to return per page (max 50).
+        schema:
+          type: integer
+          default: 50
+          maximum: 50
+          example: 50
+      - name: page
+        in: query
+        description: Page number for pagination.
+        schema:
+          type: integer
+          default: 1
+          example: 1
+      - name: token
+        in: query
+        required: true
+        description: API authentication token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with categorized news articles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    NewsArticle:
+      type: object
+      description: A cryptocurrency news article
+      properties:
+        news_url:
+          type: string
+          format: uri
+          description: URL of the original news article
+        image_url:
+          type: string
+          format: uri
+          description: URL of the article's featured image
+        title:
+          type: string
+          description: Headline title of the news article
+        text:
+          type: string
+          description: Summary or excerpt text of the article
+        source_name:
+          type: string
+          description: Name of the news source
+        date:
+          type: string
+          description: Publication date and time of the article
+        topics:
+          type: array
+          items:
+            type: string
+          description: List of topics associated with the article
+        sentiment:
+          type: string
+          enum:
+          - Positive
+          - Negative
+          - Neutral
+          description: AI-computed sentiment classification for the article
+        type:
+          type: string
+          description: Type of news content (article, video, etc.)
+        tickers:
+          type: array
+          items:
+            type: string
+          description: Cryptocurrency tickers mentioned in the article
+    NewsResponse:
+      type: object
+      description: Response containing a list of cryptocurrency news articles
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewsArticle'
+        total_pages:
+          type: integer
+          description: Total number of pages available
+        count:
+          type: integer
+          description: Total count of articles available
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: query
+      name: token
+      description: API key passed as a query parameter named 'token'

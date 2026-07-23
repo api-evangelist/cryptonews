@@ -1,0 +1,177 @@
+openapi: 3.0.3
+info:
+  title: CryptoNews Account Whale Transactions API
+  description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
+  version: '1'
+  contact:
+    url: https://cryptonews-api.com/
+  termsOfService: https://cryptonews-api.com/termsandconditions
+servers:
+- url: https://cryptonews-api.com/api/v1
+  description: Production server
+security:
+- tokenAuth: []
+tags:
+- name: Whale Transactions
+  description: Large on-chain whale transaction tracking
+paths:
+  /whale-transactions:
+    get:
+      summary: Get Whale Transactions
+      operationId: getWhaleTransactions
+      description: Retrieve large on-chain cryptocurrency transactions (whale transactions) filtered by ticker and date range or minimum amount.
+      tags:
+      - Whale Transactions
+      parameters:
+      - name: tickers
+        in: query
+        description: Comma-separated list of cryptocurrency tickers to filter by.
+        schema:
+          type: string
+          example: BTC,ETH
+      - name: date
+        in: query
+        description: Date range for whale transactions.
+        schema:
+          type: string
+          enum:
+          - last24hours
+          - last7days
+          - last30days
+          example: last24hours
+      - name: min_amount
+        in: query
+        description: Minimum transaction amount in USD to filter results.
+        schema:
+          type: integer
+          example: 5000000
+      - name: token
+        in: query
+        required: true
+        description: API authentication token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with whale transactions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhaleTransactionsResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+        '429':
+          description: Rate limit exceeded
+  /whale-summary:
+    get:
+      summary: Get Whale Transaction Summary
+      operationId: getWhaleSummary
+      description: Retrieve a summary of whale cryptocurrency transactions for a specified ticker and time period.
+      tags:
+      - Whale Transactions
+      parameters:
+      - name: tickers
+        in: query
+        description: Cryptocurrency ticker symbol to summarize whale activity for.
+        schema:
+          type: string
+          example: BTC
+      - name: date
+        in: query
+        description: Date range for the whale transaction summary.
+        schema:
+          type: string
+          enum:
+          - last24hours
+          - last7days
+          - last30days
+          example: last7days
+      - name: token
+        in: query
+        required: true
+        description: API authentication token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with whale transaction summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhaleSummaryResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    WhaleSummaryResponse:
+      type: object
+      description: Summary of whale transaction activity
+      properties:
+        data:
+          type: object
+          properties:
+            total_transactions:
+              type: integer
+              description: Total number of whale transactions in the period
+            total_volume_usd:
+              type: number
+              description: Total USD volume of whale transactions
+            largest_transaction_usd:
+              type: number
+              description: Largest single transaction amount in USD
+            exchange_inflow_usd:
+              type: number
+              description: Total USD value moving to exchanges
+            exchange_outflow_usd:
+              type: number
+              description: Total USD value moving from exchanges
+    WhaleTransactionsResponse:
+      type: object
+      description: Response containing whale transactions
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhaleTransaction'
+        count:
+          type: integer
+          description: Total number of transactions returned
+    WhaleTransaction:
+      type: object
+      description: A large on-chain cryptocurrency transaction
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the transaction
+        blockchain:
+          type: string
+          description: Blockchain network the transaction occurred on
+        symbol:
+          type: string
+          description: Cryptocurrency ticker symbol
+        transaction_type:
+          type: string
+          description: Type of transaction (transfer, exchange deposit, etc.)
+        from:
+          type: string
+          description: Sender address or label
+        to:
+          type: string
+          description: Recipient address or label
+        amount:
+          type: number
+          description: Transaction amount in crypto units
+        amount_usd:
+          type: number
+          description: Transaction amount in USD
+        timestamp:
+          type: integer
+          description: Unix timestamp of the transaction
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: query
+      name: token
+      description: API key passed as a query parameter named 'token'
