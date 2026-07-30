@@ -1,7 +1,20 @@
 aid: cryptonews
 name: CryptoNews API
 description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Freemium (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cryptonews.png
 url: https://raw.githubusercontent.com/api-evangelist/cryptonews/refs/heads/main/apis.yml
 created: 2026-06-13
 modified: 2026-06-13
@@ -15,27 +28,150 @@ tags:
   - Whale Transactions
   - Crypto Prices
 apis:
-  - aid: cryptonews:cryptonews-api
-    name: CryptoNews REST API
-    description: JSON REST API providing cryptocurrency news articles, videos, sentiment analysis, delayed crypto prices, whale transaction tracking, and trending headlines aggregated from 50+ sources.
-    humanURL: https://cryptonews-api.com/
-    baseURL: https://cryptonews-api.com/api/v1
-    tags:
-      - Cryptocurrency News
-      - Sentiment Analysis
-      - Market Data
-      - Whale Transactions
-    properties:
-      - type: Documentation
-        url: https://cryptonews-api.com/documentation
-      - type: Pricing
-        url: https://cryptonews-api.com/pricing
-      - type: TermsOfService
-        url: https://cryptonews-api.com/termsandconditions
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/cryptonews/refs/heads/main/openapi/openapi.yml
-      - type: FAQ
-        url: https://cryptonews-api.com/faq
+- aid: cryptonews:cryptonews-account-api
+  name: CryptoNews API Account API
+  description: Account and reference data
+  humanURL: https://cryptonews-api.com/
+  baseURL: https://cryptonews-api.com/api/v1
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/cryptonews-account-api-openapi.yml
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
+- aid: cryptonews:cryptonews-categories-api
+  name: CryptoNews API Categories API
+  description: News by category or sector
+  humanURL: https://cryptonews-api.com/
+  baseURL: https://cryptonews-api.com/api/v1
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/cryptonews-categories-api-openapi.yml
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
+- aid: cryptonews:cryptonews-digest-api
+  name: CryptoNews API Digest API
+  description: Curated digest endpoints
+  humanURL: https://cryptonews-api.com/
+  baseURL: https://cryptonews-api.com/api/v1
+  tags:
+  - Digest
+  properties:
+  - type: OpenAPI
+    url: openapi/cryptonews-digest-api-openapi.yml
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
+- aid: cryptonews:cryptonews-news-api
+  name: CryptoNews API News API
+  description: Cryptocurrency news articles aggregated from 50+ sources
+  humanURL: https://cryptonews-api.com/
+  baseURL: https://cryptonews-api.com/api/v1
+  tags:
+  - News
+  properties:
+  - type: OpenAPI
+    url: openapi/cryptonews-news-api-openapi.yml
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
+- aid: cryptonews:cryptonews-prices-api
+  name: CryptoNews API Prices API
+  description: Delayed cryptocurrency pricing data
+  humanURL: https://cryptonews-api.com/
+  baseURL: https://cryptonews-api.com/api/v1
+  tags:
+  - Prices
+  properties:
+  - type: OpenAPI
+    url: openapi/cryptonews-prices-api-openapi.yml
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
+- aid: cryptonews:cryptonews-sentiment-stats-api
+  name: CryptoNews API Sentiment & Stats API
+  description: Sentiment analysis and statistical summaries
+  humanURL: https://cryptonews-api.com/
+  baseURL: https://cryptonews-api.com/api/v1
+  tags:
+  - Sentiment & Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/cryptonews-sentiment-stats-api-openapi.yml
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
+- aid: cryptonews:cryptonews-trending-api
+  name: CryptoNews API Trending API
+  description: Trending headlines and top mentions
+  humanURL: https://cryptonews-api.com/
+  baseURL: https://cryptonews-api.com/api/v1
+  tags:
+  - Trending
+  properties:
+  - type: OpenAPI
+    url: openapi/cryptonews-trending-api-openapi.yml
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
+- aid: cryptonews:cryptonews-whale-transactions-api
+  name: CryptoNews API Whale Transactions API
+  description: Large on-chain whale transaction tracking
+  humanURL: https://cryptonews-api.com/
+  baseURL: https://cryptonews-api.com/api/v1
+  tags:
+  - Whale Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/cryptonews-whale-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://cryptonews-api.com/documentation
+  - type: Pricing
+    url: https://cryptonews-api.com/pricing
+  - type: TermsOfService
+    url: https://cryptonews-api.com/termsandconditions
+  - type: FAQ
+    url: https://cryptonews-api.com/faq
 common:
   - type: AgenticAccess
     url: agentic-access/cryptonews-agentic-access.yml
