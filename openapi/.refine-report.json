@@ -1,0 +1,28 @@
+{
+  "provider": "cryptonews",
+  "sources": [
+    "cryptonews-account-api-openapi.yml",
+    "cryptonews-categories-api-openapi.yml",
+    "cryptonews-digest-api-openapi.yml",
+    "cryptonews-news-api-openapi.yml",
+    "cryptonews-prices-api-openapi.yml",
+    "cryptonews-sentiment-stats-api-openapi.yml",
+    "cryptonews-trending-api-openapi.yml",
+    "cryptonews-whale-transactions-api-openapi.yml"
+  ],
+  "outputs": [
+    "cryptonews-account-api-openapi.yml",
+    "cryptonews-categories-api-openapi.yml",
+    "cryptonews-digest-api-openapi.yml",
+    "cryptonews-news-api-openapi.yml",
+    "cryptonews-prices-api-openapi.yml",
+    "cryptonews-sentiment-stats-api-openapi.yml",
+    "cryptonews-trending-api-openapi.yml",
+    "cryptonews-whale-transactions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
