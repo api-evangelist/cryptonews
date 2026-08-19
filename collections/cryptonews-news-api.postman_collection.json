@@ -1,0 +1,499 @@
+{
+  "item": [
+    {
+      "id": "b5d80d70-ec7f-4a08-a721-74d08eb983f2",
+      "name": "News",
+      "description": {
+        "content": "Cryptocurrency news articles aggregated from 50+ sources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8840d8d9-0b0f-4af6-8445-9df510a0371d",
+          "name": "Get Crypto News",
+          "request": {
+            "name": "Get Crypto News",
+            "description": {
+              "content": "Retrieve cryptocurrency news articles from 50+ sources. Filter by ticker symbol, include or exclude tickers, control pagination and item count per page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<string>",
+                  "description": "Comma-separated list of cryptocurrency ticker symbols to filter news by (e.g. BTC,ETH,XRP)."
+                },
+                {
+                  "disabled": false,
+                  "key": "tickers-include",
+                  "value": "<string>",
+                  "description": "Return only articles that mention all of the specified tickers (comma-separated). Stricter than tickers."
+                },
+                {
+                  "disabled": false,
+                  "key": "tickers-only",
+                  "value": "<string>",
+                  "description": "Return only articles that mention exclusively the specified ticker and no other tickers."
+                },
+                {
+                  "disabled": false,
+                  "key": "items",
+                  "value": "50",
+                  "description": "Number of news articles to return per page (max 50)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination (starts at 1)."
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) API authentication token."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ce12dc2-2698-466f-86fc-615d22e967e5",
+              "name": "Successful response with news articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC,ETH,XRP"
+                    },
+                    {
+                      "key": "tickers-include",
+                      "value": "BTC,ETH,XRP"
+                    },
+                    {
+                      "key": "tickers-only",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "items",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"news_url\": \"http://vUyFeIECuMEvVBusovtRWrh.wrygKkNYJ9m+mDLJP0QpfiZjjnav5EC4iokB+3bBx\",\n      \"image_url\": \"https://tmbfZtvmARqbLfUbBKbjqzkI.whvfIv9dbAlDV7vWwApwNzJ3kF8Fof1KjF1ImKaRTnzYtDFy9xjA.\",\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"source_name\": \"string\",\n      \"date\": \"string\",\n      \"topics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sentiment\": \"Negative\",\n      \"type\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"news_url\": \"http://HjnwcdkijKZjIKGNYjdnElPfXFhEsH.lstO\",\n      \"image_url\": \"https://hiJfdiFQQpNcdclBfyjXsaqiPKBU.tjQnLXnQt3BOSdQ,+ZuW3a7ULysmV3T1qa\",\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"source_name\": \"string\",\n      \"date\": \"string\",\n      \"topics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sentiment\": \"Positive\",\n      \"type\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"total_pages\": 8009,\n  \"count\": 6286\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08b06363-dd7b-460d-bbe8-2611db1a1ea4",
+              "name": "Unauthorized - invalid or missing token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC,ETH,XRP"
+                    },
+                    {
+                      "key": "tickers-include",
+                      "value": "BTC,ETH,XRP"
+                    },
+                    {
+                      "key": "tickers-only",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "items",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7fe2f08-1bbd-4e0d-8128-e88507952423",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC,ETH,XRP"
+                    },
+                    {
+                      "key": "tickers-include",
+                      "value": "BTC,ETH,XRP"
+                    },
+                    {
+                      "key": "tickers-only",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "items",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1044f163-0093-4421-be75-cf68c6ea7e7d",
+          "name": "Get Crypto Events",
+          "request": {
+            "name": "Get Crypto Events",
+            "description": {
+              "content": "Retrieve cryptocurrency events such as conferences, hard forks, and other scheduled events. Optionally filter by ticker symbol.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<string>",
+                  "description": "Cryptocurrency ticker to filter events by."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) API authentication token."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46a01046-5a72-4c21-acad-214e9fbff4a7",
+              "name": "Successful response with crypto events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"date\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"source\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"date\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"source\": \"string\"\n    }\n  ],\n  \"total_pages\": 123\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8f1494c-0d1c-47b3-a1db-3c1898a7a5d0",
+              "name": "Unauthorized - invalid or missing token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f159d98e-167e-4fa0-be90-fa7ff888784a",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cryptonews-api.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6055cb1b-0e52-4a82-b3ec-d08ccc8b1eef",
+    "name": "CryptoNews Account News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
+      "type": "text/plain"
+    }
+  }
+}

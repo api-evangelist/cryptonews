@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CryptoNews Account Whale Transactions API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Whale Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Whale Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cryptonews-api.com/api/v1/whale-transactions",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of cryptocurrency tickers to filter by."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Date range for whale transactions."
+              },
+              {
+                "name": "min_amount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum transaction amount in USD to filter results."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "API authentication token."
+              }
+            ]
+          },
+          "docs": "Retrieve large on-chain cryptocurrency transactions (whale transactions) filtered by ticker and date range or minimum amount."
+        },
+        {
+          "info": {
+            "name": "Get Whale Transaction Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cryptonews-api.com/api/v1/whale-summary",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Cryptocurrency ticker symbol to summarize whale activity for."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Date range for the whale transaction summary."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "API authentication token."
+              }
+            ]
+          },
+          "docs": "Retrieve a summary of whale cryptocurrency transactions for a specified ticker and time period."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

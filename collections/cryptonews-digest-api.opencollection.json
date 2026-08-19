@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CryptoNews Account Digest API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Digest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Sundown Digest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cryptonews-api.com/api/v1/sundown-digest",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "API authentication token."
+              }
+            ]
+          },
+          "docs": "Retrieve the curated daily Sundown Digest of top cryptocurrency news stories."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

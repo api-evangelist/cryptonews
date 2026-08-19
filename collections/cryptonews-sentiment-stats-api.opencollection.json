@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CryptoNews Account Sentiment & Stats API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sentiment & Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Sentiment Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cryptonews-api.com/api/v1/stat",
+            "params": [
+              {
+                "name": "section",
+                "value": "",
+                "type": "query",
+                "description": "Section to get stats for. Use 'general' or 'alltickers'. Mutually exclusive with tickers parameter."
+              },
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated ticker symbols to get stats for. Mutually exclusive with section parameter."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Date range for sentiment statistics."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "API authentication token."
+              }
+            ]
+          },
+          "docs": "Retrieve AI-powered sentiment analysis statistics for cryptocurrency news. Filter by section (general or alltickers) or specific ticker, and specify a date range."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

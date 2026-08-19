@@ -1,0 +1,229 @@
+{
+  "item": [
+    {
+      "id": "59ebda72-5620-4c9e-9539-174e6d45de95",
+      "name": "Prices",
+      "description": {
+        "content": "Delayed cryptocurrency pricing data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4fc0bfe9-4c08-4c35-8c98-08918c5b12e2",
+          "name": "Get Delayed Ticker Prices",
+          "request": {
+            "name": "Get Delayed Ticker Prices",
+            "description": {
+              "content": "Retrieve delayed cryptocurrency price data for one or more tickers. Supports 600+ coins. Prices are delayed (not real-time).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ticker-price"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<string>",
+                  "description": "Comma-separated list of ticker symbols to get prices for. If omitted, returns all available tickers."
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) API authentication token."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "290b3300-6e7d-4fcf-a25d-dc8873f4beca",
+              "name": "Successful response with delayed ticker prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ticker-price"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC,ETH,SOL,DOGE,XRP"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": {\n      \"ticker\": \"string\",\n      \"price\": 7378.234281745603,\n      \"price_change_percentage_24h\": 7256.2785755202485,\n      \"market_cap\": 2084.011663330948,\n      \"volume_24h\": 1577.7017905832213\n    },\n    \"key_1\": {\n      \"ticker\": \"string\",\n      \"price\": 5568.430336660248,\n      \"price_change_percentage_24h\": 6257.213632423221,\n      \"market_cap\": 7208.0254964320875,\n      \"volume_24h\": 7652.882876566331\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f2cf74f-17df-4666-a60a-eec5ee687a51",
+              "name": "Unauthorized - invalid or missing token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ticker-price"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC,ETH,SOL,DOGE,XRP"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de873ae7-da26-4af5-b133-154568a71b85",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ticker-price"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "BTC,ETH,SOL,DOGE,XRP"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cryptonews-api.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7494edeb-9466-4059-aef9-95003eb7812d",
+    "name": "CryptoNews Account Prices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
+      "type": "text/plain"
+    }
+  }
+}

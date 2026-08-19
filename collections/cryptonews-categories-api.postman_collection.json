@@ -1,0 +1,265 @@
+{
+  "item": [
+    {
+      "id": "a8204014-77db-4b84-bfda-920fe1d60437",
+      "name": "Categories",
+      "description": {
+        "content": "News by category or sector",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d9478b98-4e61-4f89-a22b-d7e245bad007",
+          "name": "Get News by Category",
+          "request": {
+            "name": "Get News by Category",
+            "description": {
+              "content": "Retrieve cryptocurrency news articles filtered by category section. Use section=general for general crypto news or section=alltickers for all ticker-based news.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "category"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "section",
+                  "value": "<string>",
+                  "description": "(Required) Category section to filter by. Use 'general' for general crypto news or 'alltickers' for all ticker news."
+                },
+                {
+                  "disabled": false,
+                  "key": "items",
+                  "value": "50",
+                  "description": "Number of news articles to return per page (max 50)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) API authentication token."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa9d402a-d2e0-4309-894e-24f961ad9853",
+              "name": "Successful response with categorized news articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "value": "general"
+                    },
+                    {
+                      "key": "items",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"news_url\": \"https://PVRKgxdj.ttPQJ3Jtr4n6Ik8v5mpvrCFVe.W,jt\",\n      \"image_url\": \"http://mmexphyd.oxmj3,GOOgdajkaT9+m.XLOrd5x\",\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"source_name\": \"string\",\n      \"date\": \"string\",\n      \"topics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sentiment\": \"Positive\",\n      \"type\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"news_url\": \"http://JXqxBt.smknEB,ihF.8P\",\n      \"image_url\": \"http://FpLDBOLTrHLa.owHaO0ROZvAlcPeqdgpcdzKNNuo2Ubsb+m.ZGYtWdSgnCK\",\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"source_name\": \"string\",\n      \"date\": \"string\",\n      \"topics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sentiment\": \"Positive\",\n      \"type\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"total_pages\": 2937,\n  \"count\": 5362\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e9a2d01-83de-4ec2-99ec-56b510f60093",
+              "name": "Unauthorized - invalid or missing token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "value": "general"
+                    },
+                    {
+                      "key": "items",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27b0b0d0-9f48-4335-ac8e-8bb1e8f313bc",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "value": "general"
+                    },
+                    {
+                      "key": "items",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cryptonews-api.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fd37c5dd-6343-4276-b370-858f5ee70f23",
+    "name": "CryptoNews Account Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
+      "type": "text/plain"
+    }
+  }
+}

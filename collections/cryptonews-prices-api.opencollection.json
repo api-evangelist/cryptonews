@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CryptoNews Account Prices API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Prices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Delayed Ticker Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cryptonews-api.com/api/v1/ticker-price",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of ticker symbols to get prices for. If omitted, returns all available tickers."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "API authentication token."
+              }
+            ]
+          },
+          "docs": "Retrieve delayed cryptocurrency price data for one or more tickers. Supports 600+ coins. Prices are delayed (not real-time)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

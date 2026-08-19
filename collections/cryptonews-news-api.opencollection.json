@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CryptoNews Account News API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Crypto News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cryptonews-api.com/api/v1/",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of cryptocurrency ticker symbols to filter news by (e.g. BTC,ETH,XRP)."
+              },
+              {
+                "name": "tickers-include",
+                "value": "",
+                "type": "query",
+                "description": "Return only articles that mention all of the specified tickers (comma-separated). Stricter than tickers."
+              },
+              {
+                "name": "tickers-only",
+                "value": "",
+                "type": "query",
+                "description": "Return only articles that mention exclusively the specified ticker and no other tickers."
+              },
+              {
+                "name": "items",
+                "value": "",
+                "type": "query",
+                "description": "Number of news articles to return per page (max 50)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (starts at 1)."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "API authentication token."
+              }
+            ]
+          },
+          "docs": "Retrieve cryptocurrency news articles from 50+ sources. Filter by ticker symbol, include or exclude tickers, control pagination and item count per page."
+        },
+        {
+          "info": {
+            "name": "Get Crypto Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cryptonews-api.com/api/v1/events",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Cryptocurrency ticker to filter events by."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "API authentication token."
+              }
+            ]
+          },
+          "docs": "Retrieve cryptocurrency events such as conferences, hard forks, and other scheduled events. Optionally filter by ticker symbol."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
