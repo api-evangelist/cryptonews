@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: CryptoNews Account Prices API
+  title: CryptoNews Prices API
   description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
   version: '1'
   contact:
@@ -48,6 +48,15 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
+    TickerPriceResponse:
+      type: object
+      description: Response containing delayed ticker prices
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TickerPrice'
+          description: Map of ticker symbol to price data
     TickerPrice:
       type: object
       description: Delayed price data for a single cryptocurrency ticker
@@ -67,15 +76,6 @@ components:
         volume_24h:
           type: number
           description: 24-hour trading volume in USD
-    TickerPriceResponse:
-      type: object
-      description: Response containing delayed ticker prices
-      properties:
-        data:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TickerPrice'
-          description: Map of ticker symbol to price data
   securitySchemes:
     tokenAuth:
       type: apiKey

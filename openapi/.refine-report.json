@@ -1,14 +1,7 @@
 {
   "provider": "cryptonews",
   "sources": [
-    "cryptonews-account-api-openapi.yml",
-    "cryptonews-categories-api-openapi.yml",
-    "cryptonews-digest-api-openapi.yml",
-    "cryptonews-news-api-openapi.yml",
-    "cryptonews-prices-api-openapi.yml",
-    "cryptonews-sentiment-stats-api-openapi.yml",
-    "cryptonews-trending-api-openapi.yml",
-    "cryptonews-whale-transactions-api-openapi.yml"
+    "_original/openapi.yml"
   ],
   "outputs": [
     "cryptonews-account-api-openapi.yml",
@@ -23,6 +16,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "cryptonews-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cryptonews-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cryptonews-digest-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cryptonews-news-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cryptonews-prices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cryptonews-sentiment-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cryptonews-trending-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cryptonews-whale-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

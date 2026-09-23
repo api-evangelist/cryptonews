@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: CryptoNews Account Whale Transactions API
+  title: CryptoNews Whale Transactions API
   description: REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.
   version: '1'
   contact:
@@ -127,17 +127,6 @@ components:
             exchange_outflow_usd:
               type: number
               description: Total USD value moving from exchanges
-    WhaleTransactionsResponse:
-      type: object
-      description: Response containing whale transactions
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhaleTransaction'
-        count:
-          type: integer
-          description: Total number of transactions returned
     WhaleTransaction:
       type: object
       description: A large on-chain cryptocurrency transaction
@@ -169,6 +158,17 @@ components:
         timestamp:
           type: integer
           description: Unix timestamp of the transaction
+    WhaleTransactionsResponse:
+      type: object
+      description: Response containing whale transactions
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhaleTransaction'
+        count:
+          type: integer
+          description: Total number of transactions returned
   securitySchemes:
     tokenAuth:
       type: apiKey
