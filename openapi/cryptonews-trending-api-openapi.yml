@@ -90,35 +90,6 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
-    TopMentionResponse:
-      type: object
-      description: Response containing top mentioned tickers
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              ticker:
-                type: string
-                description: Cryptocurrency ticker symbol
-              mention_count:
-                type: integer
-                description: Number of times mentioned in the time period
-              sentiment_score:
-                type: number
-                description: Average sentiment score for mentions
-    HeadlinesResponse:
-      type: object
-      description: Response containing trending headline articles
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/NewsArticle'
-        total_pages:
-          type: integer
-          description: Total number of pages available
     NewsArticle:
       type: object
       description: A cryptocurrency news article
@@ -163,6 +134,35 @@ components:
           items:
             type: string
           description: Cryptocurrency tickers mentioned in the article
+    TopMentionResponse:
+      type: object
+      description: Response containing top mentioned tickers
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              ticker:
+                type: string
+                description: Cryptocurrency ticker symbol
+              mention_count:
+                type: integer
+                description: Number of times mentioned in the time period
+              sentiment_score:
+                type: number
+                description: Average sentiment score for mentions
+    HeadlinesResponse:
+      type: object
+      description: Response containing trending headline articles
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewsArticle'
+        total_pages:
+          type: integer
+          description: Total number of pages available
   securitySchemes:
     tokenAuth:
       type: apiKey
