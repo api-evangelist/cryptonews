@@ -105,28 +105,17 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
-    WhaleSummaryResponse:
+    WhaleTransactionsResponse:
       type: object
-      description: Summary of whale transaction activity
+      description: Response containing whale transactions
       properties:
         data:
-          type: object
-          properties:
-            total_transactions:
-              type: integer
-              description: Total number of whale transactions in the period
-            total_volume_usd:
-              type: number
-              description: Total USD volume of whale transactions
-            largest_transaction_usd:
-              type: number
-              description: Largest single transaction amount in USD
-            exchange_inflow_usd:
-              type: number
-              description: Total USD value moving to exchanges
-            exchange_outflow_usd:
-              type: number
-              description: Total USD value moving from exchanges
+          type: array
+          items:
+            $ref: '#/components/schemas/WhaleTransaction'
+        count:
+          type: integer
+          description: Total number of transactions returned
     WhaleTransaction:
       type: object
       description: A large on-chain cryptocurrency transaction
@@ -158,17 +147,28 @@ components:
         timestamp:
           type: integer
           description: Unix timestamp of the transaction
-    WhaleTransactionsResponse:
+    WhaleSummaryResponse:
       type: object
-      description: Response containing whale transactions
+      description: Summary of whale transaction activity
       properties:
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhaleTransaction'
-        count:
-          type: integer
-          description: Total number of transactions returned
+          type: object
+          properties:
+            total_transactions:
+              type: integer
+              description: Total number of whale transactions in the period
+            total_volume_usd:
+              type: number
+              description: Total USD volume of whale transactions
+            largest_transaction_usd:
+              type: number
+              description: Largest single transaction amount in USD
+            exchange_inflow_usd:
+              type: number
+              description: Total USD value moving to exchanges
+            exchange_outflow_usd:
+              type: number
+              description: Total USD value moving from exchanges
   securitySchemes:
     tokenAuth:
       type: apiKey

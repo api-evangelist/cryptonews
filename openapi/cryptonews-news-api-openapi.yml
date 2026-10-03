@@ -113,6 +113,30 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
+    CryptoEvent:
+      type: object
+      description: A scheduled cryptocurrency event
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the event
+        title:
+          type: string
+          description: Title of the event
+        description:
+          type: string
+          description: Description of the event
+        date:
+          type: string
+          description: Date of the event
+        tickers:
+          type: array
+          items:
+            type: string
+          description: Related cryptocurrency tickers
+        source:
+          type: string
+          description: Source of the event information
     NewsArticle:
       type: object
       description: A cryptocurrency news article
@@ -157,30 +181,6 @@ components:
           items:
             type: string
           description: Cryptocurrency tickers mentioned in the article
-    CryptoEvent:
-      type: object
-      description: A scheduled cryptocurrency event
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the event
-        title:
-          type: string
-          description: Title of the event
-        description:
-          type: string
-          description: Description of the event
-        date:
-          type: string
-          description: Date of the event
-        tickers:
-          type: array
-          items:
-            type: string
-          description: Related cryptocurrency tickers
-        source:
-          type: string
-          description: Source of the event information
     NewsResponse:
       type: object
       description: Response containing a list of cryptocurrency news articles
