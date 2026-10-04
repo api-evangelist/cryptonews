@@ -105,17 +105,6 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
-    WhaleTransactionsResponse:
-      type: object
-      description: Response containing whale transactions
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhaleTransaction'
-        count:
-          type: integer
-          description: Total number of transactions returned
     WhaleTransaction:
       type: object
       description: A large on-chain cryptocurrency transaction
@@ -147,6 +136,17 @@ components:
         timestamp:
           type: integer
           description: Unix timestamp of the transaction
+    WhaleTransactionsResponse:
+      type: object
+      description: Response containing whale transactions
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhaleTransaction'
+        count:
+          type: integer
+          description: Total number of transactions returned
     WhaleSummaryResponse:
       type: object
       description: Summary of whale transaction activity

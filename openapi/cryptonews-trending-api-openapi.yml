@@ -90,17 +90,6 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
-    HeadlinesResponse:
-      type: object
-      description: Response containing trending headline articles
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/NewsArticle'
-        total_pages:
-          type: integer
-          description: Total number of pages available
     NewsArticle:
       type: object
       description: A cryptocurrency news article
@@ -163,6 +152,17 @@ components:
               sentiment_score:
                 type: number
                 description: Average sentiment score for mentions
+    HeadlinesResponse:
+      type: object
+      description: Response containing trending headline articles
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewsArticle'
+        total_pages:
+          type: integer
+          description: Total number of pages available
   securitySchemes:
     tokenAuth:
       type: apiKey

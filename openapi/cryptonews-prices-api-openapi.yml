@@ -48,6 +48,15 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
+    TickerPriceResponse:
+      type: object
+      description: Response containing delayed ticker prices
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TickerPrice'
+          description: Map of ticker symbol to price data
     TickerPrice:
       type: object
       description: Delayed price data for a single cryptocurrency ticker
@@ -67,15 +76,6 @@ components:
         volume_24h:
           type: number
           description: 24-hour trading volume in USD
-    TickerPriceResponse:
-      type: object
-      description: Response containing delayed ticker prices
-      properties:
-        data:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TickerPrice'
-          description: Map of ticker symbol to price data
   securitySchemes:
     tokenAuth:
       type: apiKey

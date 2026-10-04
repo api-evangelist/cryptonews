@@ -42,15 +42,6 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
-    TickersDbResponse:
-      type: object
-      description: Response containing the supported tickers database
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TickerInfo'
-          description: List of all supported cryptocurrency tickers
     TickerInfo:
       type: object
       description: Information about a supported cryptocurrency ticker
@@ -65,6 +56,15 @@ components:
           type: string
           format: uri
           description: URL of the cryptocurrency logo
+    TickersDbResponse:
+      type: object
+      description: Response containing the supported tickers database
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TickerInfo'
+          description: List of all supported cryptocurrency tickers
   securitySchemes:
     tokenAuth:
       type: apiKey

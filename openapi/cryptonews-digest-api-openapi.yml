@@ -49,6 +49,20 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
+    NewsResponse:
+      type: object
+      description: Response containing a list of cryptocurrency news articles
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewsArticle'
+        total_pages:
+          type: integer
+          description: Total number of pages available
+        count:
+          type: integer
+          description: Total count of articles available
     NewsArticle:
       type: object
       description: A cryptocurrency news article
@@ -93,20 +107,6 @@ components:
           items:
             type: string
           description: Cryptocurrency tickers mentioned in the article
-    NewsResponse:
-      type: object
-      description: Response containing a list of cryptocurrency news articles
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/NewsArticle'
-        total_pages:
-          type: integer
-          description: Total number of pages available
-        count:
-          type: integer
-          description: Total count of articles available
   securitySchemes:
     tokenAuth:
       type: apiKey
