@@ -113,17 +113,6 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
-    EventsResponse:
-      type: object
-      description: Response containing cryptocurrency events
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CryptoEvent'
-        total_pages:
-          type: integer
-          description: Total number of pages available
     CryptoEvent:
       type: object
       description: A scheduled cryptocurrency event
@@ -148,6 +137,17 @@ components:
         source:
           type: string
           description: Source of the event information
+    EventsResponse:
+      type: object
+      description: Response containing cryptocurrency events
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CryptoEvent'
+        total_pages:
+          type: integer
+          description: Total number of pages available
     NewsResponse:
       type: object
       description: Response containing a list of cryptocurrency news articles
