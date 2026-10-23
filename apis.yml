@@ -186,6 +186,8 @@ apis:
   - type: FAQ
     url: https://cryptonews-api.com/faq
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/cryptonews-api/overview
   - type: AgenticAccess
     url: agentic-access/cryptonews-agentic-access.yml
   - type: DomainSecurity
