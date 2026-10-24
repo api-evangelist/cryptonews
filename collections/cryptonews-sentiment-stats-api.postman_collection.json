@@ -1,257 +1,253 @@
 {
+  "info": {
+    "_postman_id": "b859508a-f7ef-439b-a4b6-2528b9b2b14f",
+    "name": "CryptoNews Sentiment & Stats API",
+    "description": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:32:55.000Z",
+    "updatedAt": "2026-10-22T01:32:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b859508a-f7ef-439b-a4b6-2528b9b2b14f"
+  },
   "item": [
     {
-      "id": "4fbb4f16-da38-4fb9-a2cd-2b038ae58e8c",
-      "name": "Sentiment & Stats",
-      "description": {
-        "content": "Sentiment analysis and statistical summaries",
-        "type": "text/plain"
-      },
+      "name": "stat",
       "item": [
         {
-          "id": "94c4bd7f-1f1b-4884-9dae-8823ff9f952a",
           "name": "Get Sentiment Statistics",
+          "id": "810a9533-9b6b-43cf-b1fb-f3fd4e5667c7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Get Sentiment Statistics",
-            "description": {
-              "content": "Retrieve AI-powered sentiment analysis statistics for cryptocurrency news. Filter by section (general or alltickers) or specific ticker, and specify a date range.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "stat"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "section",
-                  "value": "<string>",
-                  "description": "Section to get stats for. Use 'general' or 'alltickers'. Mutually exclusive with tickers parameter."
-                },
-                {
-                  "disabled": false,
-                  "key": "tickers",
-                  "value": "<string>",
-                  "description": "Comma-separated ticker symbols to get stats for. Mutually exclusive with section parameter."
-                },
-                {
-                  "disabled": false,
-                  "key": "date",
-                  "value": "<string>",
-                  "description": "Date range for sentiment statistics."
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number for pagination."
-                },
-                {
-                  "disabled": false,
-                  "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) API authentication token."
-                }
-              ],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/stat?section=general&tickers=<string>&date=last30days&page=1&token=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stat"
+              ],
+              "query": [
+                {
+                  "description": "Section to get stats for. Use 'general' or 'alltickers'. Mutually exclusive with tickers parameter.",
+                  "key": "section",
+                  "value": "general"
+                },
+                {
+                  "description": "Comma-separated ticker symbols to get stats for. Mutually exclusive with section parameter.",
+                  "key": "tickers",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Date range for sentiment statistics.",
+                  "key": "date",
+                  "value": "last30days"
+                },
+                {
+                  "description": "Page number for pagination.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "(Required) API authentication token.",
+                  "key": "token",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve AI-powered sentiment analysis statistics for cryptocurrency news. Filter by section (general or alltickers) or specific ticker, and specify a date range."
           },
           "response": [
             {
-              "id": "e3a6ad10-c12f-4d18-946d-f5fb887ab9b9",
+              "id": "d9997dbc-998f-4e80-89fe-2873f73b69e5",
               "name": "Successful response with sentiment statistics",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "stat"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "section",
-                      "value": "general"
-                    },
-                    {
-                      "key": "tickers",
-                      "value": "BTC"
-                    },
-                    {
-                      "key": "date",
-                      "value": "last30days"
-                    },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/stat?section=general&tickers=<string>&date=last30days&page=1&token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "stat"
+                  ],
+                  "query": [
+                    {
+                      "description": "Section to get stats for. Use 'general' or 'alltickers'. Mutually exclusive with tickers parameter.",
+                      "key": "section",
+                      "value": "general"
+                    },
+                    {
+                      "description": "Comma-separated ticker symbols to get stats for. Mutually exclusive with section parameter.",
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Date range for sentiment statistics.",
+                      "key": "date",
+                      "value": "last30days"
+                    },
+                    {
+                      "description": "Page number for pagination.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "(Required) API authentication token.",
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"date\": \"string\",\n      \"positive\": 5681,\n      \"negative\": 503,\n      \"neutral\": 9102,\n      \"ticker\": \"string\"\n    },\n    {\n      \"date\": \"string\",\n      \"positive\": 2678,\n      \"negative\": 3509,\n      \"neutral\": 3799,\n      \"ticker\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"date\": \"<string>\",\n      \"positive\": \"<integer>\",\n      \"negative\": \"<integer>\",\n      \"neutral\": \"<integer>\",\n      \"ticker\": \"<string>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"positive\": \"<integer>\",\n      \"negative\": \"<integer>\",\n      \"neutral\": \"<integer>\",\n      \"ticker\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:32:56.000Z",
+              "updatedAt": "2026-10-22T01:32:56.000Z",
+              "uid": "35240-d9997dbc-998f-4e80-89fe-2873f73b69e5"
             },
             {
-              "id": "e3921a86-93e3-4826-8dc1-2188daaf4409",
+              "id": "191d56aa-54f2-4712-9671-f7ad27a40dcc",
               "name": "Unauthorized - invalid or missing token",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "stat"
-                  ],
+                  "raw": "{{baseUrl}}/stat?section=general&tickers=<string>&date=last30days&page=1&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "stat"
+                  ],
                   "query": [
                     {
+                      "description": "Section to get stats for. Use 'general' or 'alltickers'. Mutually exclusive with tickers parameter.",
                       "key": "section",
                       "value": "general"
                     },
                     {
+                      "description": "Comma-separated ticker symbols to get stats for. Mutually exclusive with section parameter.",
                       "key": "tickers",
-                      "value": "BTC"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Date range for sentiment statistics.",
                       "key": "date",
                       "value": "last30days"
                     },
                     {
+                      "description": "Page number for pagination.",
                       "key": "page",
                       "value": "1"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:32:56.000Z",
+              "updatedAt": "2026-10-22T01:32:56.000Z",
+              "uid": "35240-191d56aa-54f2-4712-9671-f7ad27a40dcc"
             },
             {
-              "id": "046a2a08-5ca8-4f28-b04f-2e012cd03929",
+              "id": "65a85a5d-a9eb-4854-bd96-9b30a2c0d5d5",
               "name": "Rate limit exceeded",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "stat"
-                  ],
+                  "raw": "{{baseUrl}}/stat?section=general&tickers=<string>&date=last30days&page=1&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "stat"
+                  ],
                   "query": [
                     {
+                      "description": "Section to get stats for. Use 'general' or 'alltickers'. Mutually exclusive with tickers parameter.",
                       "key": "section",
                       "value": "general"
                     },
                     {
+                      "description": "Comma-separated ticker symbols to get stats for. Mutually exclusive with section parameter.",
                       "key": "tickers",
-                      "value": "BTC"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Date range for sentiment statistics.",
                       "key": "date",
                       "value": "last30days"
                     },
                     {
+                      "description": "Page number for pagination.",
                       "key": "page",
                       "value": "1"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Too Many Requests",
               "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:32:56.000Z",
+              "updatedAt": "2026-10-22T01:32:56.000Z",
+              "uid": "35240-65a85a5d-a9eb-4854-bd96-9b30a2c0d5d5"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:32:56.000Z",
+          "updatedAt": "2026-10-22T01:32:56.000Z",
+          "uid": "35240-810a9533-9b6b-43cf-b1fb-f3fd4e5667c7"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cryptonews-api.com/api/v1",
-      "key": "baseUrl"
+      "id": "60279a80-4a24-4962-bb84-a2d68b8ca077",
+      "createdAt": "2026-10-22T01:32:56.000Z",
+      "updatedAt": "2026-10-22T01:32:56.000Z",
+      "uid": "35240-60279a80-4a24-4962-bb84-a2d68b8ca077"
     }
   ],
   "auth": {
@@ -259,25 +255,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "token"
+        "value": "token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "4111fa6f-17bb-4d5c-9f1b-50b1871dc2ee",
-    "name": "CryptoNews Account Sentiment & Stats API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cryptonews-api.com/api/v1"
     }
-  }
+  ]
 }

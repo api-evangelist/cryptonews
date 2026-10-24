@@ -1,437 +1,432 @@
 {
+  "info": {
+    "_postman_id": "775d1424-f491-4623-8e80-4c4db7f699bd",
+    "name": "CryptoNews Whale Transactions API",
+    "description": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:33:08.000Z",
+    "updatedAt": "2026-10-22T01:33:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-775d1424-f491-4623-8e80-4c4db7f699bd"
+  },
   "item": [
     {
-      "id": "54dbb35b-a054-4ead-92eb-f3e6d22cc59b",
-      "name": "Whale Transactions",
-      "description": {
-        "content": "Large on-chain whale transaction tracking",
-        "type": "text/plain"
-      },
+      "name": "whale-transactions",
       "item": [
         {
-          "id": "557db8eb-443b-455a-a02c-d70d64f22fd2",
           "name": "Get Whale Transactions",
+          "id": "b55b3c89-118f-4479-b8bc-06c24e920db5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Get Whale Transactions",
-            "description": {
-              "content": "Retrieve large on-chain cryptocurrency transactions (whale transactions) filtered by ticker and date range or minimum amount.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/whale-transactions?tickers=<string>&date=last30days&min_amount=<integer>&token=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "whale-transactions"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "Comma-separated list of cryptocurrency tickers to filter by.",
                   "key": "tickers",
-                  "value": "<string>",
-                  "description": "Comma-separated list of cryptocurrency tickers to filter by."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Date range for whale transactions.",
                   "key": "date",
-                  "value": "<string>",
-                  "description": "Date range for whale transactions."
+                  "value": "last30days"
                 },
                 {
-                  "disabled": false,
+                  "description": "Minimum transaction amount in USD to filter results.",
                   "key": "min_amount",
-                  "value": "<integer>",
-                  "description": "Minimum transaction amount in USD to filter results."
+                  "value": "<integer>"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) API authentication token.",
                   "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) API authentication token."
+                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Retrieve large on-chain cryptocurrency transactions (whale transactions) filtered by ticker and date range or minimum amount."
           },
           "response": [
             {
-              "id": "931ab6e1-dfbc-4a69-ae6e-8ae0076824c5",
+              "id": "d86214dd-9a4b-441c-9fc2-93ca6e6f582d",
               "name": "Successful response with whale transactions",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "whale-transactions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "tickers",
-                      "value": "BTC,ETH"
-                    },
-                    {
-                      "key": "date",
-                      "value": "last24hours"
-                    },
-                    {
-                      "key": "min_amount",
-                      "value": "5000000"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/whale-transactions?tickers=<string>&date=last30days&min_amount=<integer>&token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "whale-transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of cryptocurrency tickers to filter by.",
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Date range for whale transactions.",
+                      "key": "date",
+                      "value": "last30days"
+                    },
+                    {
+                      "description": "Minimum transaction amount in USD to filter results.",
+                      "key": "min_amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) API authentication token.",
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"blockchain\": \"string\",\n      \"symbol\": \"string\",\n      \"transaction_type\": \"string\",\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"amount\": 1386.7714535834575,\n      \"amount_usd\": 3811.0268568286133,\n      \"timestamp\": 7812\n    },\n    {\n      \"id\": \"string\",\n      \"blockchain\": \"string\",\n      \"symbol\": \"string\",\n      \"transaction_type\": \"string\",\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"amount\": 1848.4175912680134,\n      \"amount_usd\": 3269.670005087889,\n      \"timestamp\": 6059\n    }\n  ],\n  \"count\": 1353\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"blockchain\": \"<string>\",\n      \"symbol\": \"<string>\",\n      \"transaction_type\": \"<string>\",\n      \"from\": \"<string>\",\n      \"to\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"amount_usd\": \"<number>\",\n      \"timestamp\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"blockchain\": \"<string>\",\n      \"symbol\": \"<string>\",\n      \"transaction_type\": \"<string>\",\n      \"from\": \"<string>\",\n      \"to\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"amount_usd\": \"<number>\",\n      \"timestamp\": \"<integer>\"\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-10-22T01:33:09.000Z",
+              "updatedAt": "2026-10-22T01:33:09.000Z",
+              "uid": "35240-d86214dd-9a4b-441c-9fc2-93ca6e6f582d"
             },
             {
-              "id": "58bea0b5-9dba-468e-94f7-1ac728985d95",
+              "id": "99cbc7fd-da50-461d-a06e-96ccfde7086b",
               "name": "Unauthorized - invalid or missing token",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "whale-transactions"
-                  ],
+                  "raw": "{{baseUrl}}/whale-transactions?tickers=<string>&date=last30days&min_amount=<integer>&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "whale-transactions"
+                  ],
                   "query": [
                     {
+                      "description": "Comma-separated list of cryptocurrency tickers to filter by.",
                       "key": "tickers",
-                      "value": "BTC,ETH"
-                    },
-                    {
-                      "key": "date",
-                      "value": "last24hours"
-                    },
-                    {
-                      "key": "min_amount",
-                      "value": "5000000"
-                    },
-                    {
-                      "key": "token",
                       "value": "<string>"
                     },
                     {
+                      "description": "Date range for whale transactions.",
+                      "key": "date",
+                      "value": "last30days"
+                    },
+                    {
+                      "description": "Minimum transaction amount in USD to filter results.",
+                      "key": "min_amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:33:09.000Z",
+              "updatedAt": "2026-10-22T01:33:09.000Z",
+              "uid": "35240-99cbc7fd-da50-461d-a06e-96ccfde7086b"
             },
             {
-              "id": "509c5e46-f541-430f-aa45-dd52c4f81c2b",
+              "id": "3c092279-0a47-4fc1-9d45-450f44d1824a",
               "name": "Rate limit exceeded",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "whale-transactions"
-                  ],
+                  "raw": "{{baseUrl}}/whale-transactions?tickers=<string>&date=last30days&min_amount=<integer>&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "whale-transactions"
+                  ],
                   "query": [
                     {
+                      "description": "Comma-separated list of cryptocurrency tickers to filter by.",
                       "key": "tickers",
-                      "value": "BTC,ETH"
-                    },
-                    {
-                      "key": "date",
-                      "value": "last24hours"
-                    },
-                    {
-                      "key": "min_amount",
-                      "value": "5000000"
-                    },
-                    {
-                      "key": "token",
                       "value": "<string>"
                     },
                     {
+                      "description": "Date range for whale transactions.",
+                      "key": "date",
+                      "value": "last30days"
+                    },
+                    {
+                      "description": "Minimum transaction amount in USD to filter results.",
+                      "key": "min_amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Too Many Requests",
               "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:33:09.000Z",
+              "updatedAt": "2026-10-22T01:33:09.000Z",
+              "uid": "35240-3c092279-0a47-4fc1-9d45-450f44d1824a"
             }
           ],
-          "event": [],
+          "createdAt": "2026-10-22T01:33:09.000Z",
+          "updatedAt": "2026-10-22T01:33:09.000Z",
+          "uid": "35240-b55b3c89-118f-4479-b8bc-06c24e920db5"
+        }
+      ],
+      "id": "13aa5630-61de-4888-a163-31b8abc47a8e",
+      "createdAt": "2026-10-22T01:33:09.000Z",
+      "updatedAt": "2026-10-22T01:33:09.000Z",
+      "uid": "35240-13aa5630-61de-4888-a163-31b8abc47a8e"
+    },
+    {
+      "name": "whale-summary",
+      "item": [
+        {
+          "name": "Get Whale Transaction Summary",
+          "id": "6bde4c1f-b8bc-421b-a4d9-2a7d79671e8b",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4b354918-d8a8-4153-9ff9-dd97e29829fb",
-          "name": "Get Whale Transaction Summary",
+          },
           "request": {
-            "name": "Get Whale Transaction Summary",
-            "description": {
-              "content": "Retrieve a summary of whale cryptocurrency transactions for a specified ticker and time period.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/whale-summary?tickers=<string>&date=last7days&token=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "whale-summary"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "Cryptocurrency ticker symbol to summarize whale activity for.",
                   "key": "tickers",
-                  "value": "<string>",
-                  "description": "Cryptocurrency ticker symbol to summarize whale activity for."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Date range for the whale transaction summary.",
                   "key": "date",
-                  "value": "<string>",
-                  "description": "Date range for the whale transaction summary."
+                  "value": "last7days"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) API authentication token.",
                   "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) API authentication token."
+                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Retrieve a summary of whale cryptocurrency transactions for a specified ticker and time period."
           },
           "response": [
             {
-              "id": "1edf4b5b-74c0-4653-804d-10845600e27a",
+              "id": "8051b810-6f61-4b5d-86b8-685a3009e532",
               "name": "Successful response with whale transaction summary",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "whale-summary"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "tickers",
-                      "value": "BTC"
-                    },
-                    {
-                      "key": "date",
-                      "value": "last7days"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/whale-summary?tickers=<string>&date=last7days&token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "whale-summary"
+                  ],
+                  "query": [
+                    {
+                      "description": "Cryptocurrency ticker symbol to summarize whale activity for.",
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Date range for the whale transaction summary.",
+                      "key": "date",
+                      "value": "last7days"
+                    },
+                    {
+                      "description": "(Required) API authentication token.",
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": {\n    \"total_transactions\": 2360,\n    \"total_volume_usd\": 6787.645425684113,\n    \"largest_transaction_usd\": 4676.223590506707,\n    \"exchange_inflow_usd\": 5212.821797180315,\n    \"exchange_outflow_usd\": 486.6734381806337\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"total_transactions\": \"<integer>\",\n    \"total_volume_usd\": \"<number>\",\n    \"largest_transaction_usd\": \"<number>\",\n    \"exchange_inflow_usd\": \"<number>\",\n    \"exchange_outflow_usd\": \"<number>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:33:09.000Z",
+              "updatedAt": "2026-10-22T01:33:09.000Z",
+              "uid": "35240-8051b810-6f61-4b5d-86b8-685a3009e532"
             },
             {
-              "id": "4e32d99c-8a80-47c4-ad6c-da8a229bb522",
+              "id": "9f7a34ba-e2b7-445a-882d-edd97fb0e4c4",
               "name": "Unauthorized - invalid or missing token",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "whale-summary"
-                  ],
+                  "raw": "{{baseUrl}}/whale-summary?tickers=<string>&date=last7days&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "whale-summary"
+                  ],
                   "query": [
                     {
+                      "description": "Cryptocurrency ticker symbol to summarize whale activity for.",
                       "key": "tickers",
-                      "value": "BTC"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Date range for the whale transaction summary.",
                       "key": "date",
                       "value": "last7days"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:33:09.000Z",
+              "updatedAt": "2026-10-22T01:33:09.000Z",
+              "uid": "35240-9f7a34ba-e2b7-445a-882d-edd97fb0e4c4"
             },
             {
-              "id": "c62adc9f-74a3-4aae-9703-2fd1fd1a23a8",
+              "id": "e7a1c9cc-89ee-4cbf-bf9f-19bdea7e94bc",
               "name": "Rate limit exceeded",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "whale-summary"
-                  ],
+                  "raw": "{{baseUrl}}/whale-summary?tickers=<string>&date=last7days&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "whale-summary"
+                  ],
                   "query": [
                     {
+                      "description": "Cryptocurrency ticker symbol to summarize whale activity for.",
                       "key": "tickers",
-                      "value": "BTC"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Date range for the whale transaction summary.",
                       "key": "date",
                       "value": "last7days"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Too Many Requests",
               "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:33:09.000Z",
+              "updatedAt": "2026-10-22T01:33:09.000Z",
+              "uid": "35240-e7a1c9cc-89ee-4cbf-bf9f-19bdea7e94bc"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:33:09.000Z",
+          "updatedAt": "2026-10-22T01:33:09.000Z",
+          "uid": "35240-6bde4c1f-b8bc-421b-a4d9-2a7d79671e8b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cryptonews-api.com/api/v1",
-      "key": "baseUrl"
+      "id": "563fd720-b83e-451a-8184-c3c0721b2708",
+      "createdAt": "2026-10-22T01:33:09.000Z",
+      "updatedAt": "2026-10-22T01:33:09.000Z",
+      "uid": "35240-563fd720-b83e-451a-8184-c3c0721b2708"
     }
   ],
   "auth": {
@@ -439,25 +434,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "token"
+        "value": "token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f9e4abf2-98a4-4222-9a75-47c28ed1d39e",
-    "name": "CryptoNews Account Whale Transactions API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cryptonews-api.com/api/v1"
     }
-  }
+  ]
 }

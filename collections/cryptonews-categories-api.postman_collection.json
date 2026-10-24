@@ -1,239 +1,233 @@
 {
+  "info": {
+    "_postman_id": "4155cd0d-0c65-4e61-bcd7-9b8f64e31429",
+    "name": "CryptoNews Categories API",
+    "description": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:32:32.000Z",
+    "updatedAt": "2026-10-22T01:32:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4155cd0d-0c65-4e61-bcd7-9b8f64e31429"
+  },
   "item": [
     {
-      "id": "a8204014-77db-4b84-bfda-920fe1d60437",
-      "name": "Categories",
-      "description": {
-        "content": "News by category or sector",
-        "type": "text/plain"
-      },
+      "name": "category",
       "item": [
         {
-          "id": "d9478b98-4e61-4f89-a22b-d7e245bad007",
           "name": "Get News by Category",
+          "id": "f470a63f-40af-423b-b8ff-c8f2e7dfab07",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Get News by Category",
-            "description": {
-              "content": "Retrieve cryptocurrency news articles filtered by category section. Use section=general for general crypto news or section=alltickers for all ticker-based news.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "category"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "section",
-                  "value": "<string>",
-                  "description": "(Required) Category section to filter by. Use 'general' for general crypto news or 'alltickers' for all ticker news."
-                },
-                {
-                  "disabled": false,
-                  "key": "items",
-                  "value": "50",
-                  "description": "Number of news articles to return per page (max 50)."
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number for pagination."
-                },
-                {
-                  "disabled": false,
-                  "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) API authentication token."
-                }
-              ],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/category?section=alltickers&items=50&page=1&token=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "category"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Category section to filter by. Use 'general' for general crypto news or 'alltickers' for all ticker news.",
+                  "key": "section",
+                  "value": "alltickers"
+                },
+                {
+                  "description": "Number of news articles to return per page (max 50).",
+                  "key": "items",
+                  "value": "50"
+                },
+                {
+                  "description": "Page number for pagination.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "(Required) API authentication token.",
+                  "key": "token",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve cryptocurrency news articles filtered by category section. Use section=general for general crypto news or section=alltickers for all ticker-based news."
           },
           "response": [
             {
-              "id": "aa9d402a-d2e0-4309-894e-24f961ad9853",
+              "id": "c495696d-ccf2-48dc-95c1-04f7bf14f554",
               "name": "Successful response with categorized news articles",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "category"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "section",
-                      "value": "general"
-                    },
-                    {
-                      "key": "items",
-                      "value": "50"
-                    },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/category?section=alltickers&items=50&page=1&token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "category"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Category section to filter by. Use 'general' for general crypto news or 'alltickers' for all ticker news.",
+                      "key": "section",
+                      "value": "alltickers"
+                    },
+                    {
+                      "description": "Number of news articles to return per page (max 50).",
+                      "key": "items",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Page number for pagination.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "(Required) API authentication token.",
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"news_url\": \"https://PVRKgxdj.ttPQJ3Jtr4n6Ik8v5mpvrCFVe.W,jt\",\n      \"image_url\": \"http://mmexphyd.oxmj3,GOOgdajkaT9+m.XLOrd5x\",\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"source_name\": \"string\",\n      \"date\": \"string\",\n      \"topics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sentiment\": \"Positive\",\n      \"type\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"news_url\": \"http://JXqxBt.smknEB,ihF.8P\",\n      \"image_url\": \"http://FpLDBOLTrHLa.owHaO0ROZvAlcPeqdgpcdzKNNuo2Ubsb+m.ZGYtWdSgnCK\",\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"source_name\": \"string\",\n      \"date\": \"string\",\n      \"topics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sentiment\": \"Positive\",\n      \"type\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"total_pages\": 2937,\n  \"count\": 5362\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"news_url\": \"<uri>\",\n      \"image_url\": \"<uri>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"source_name\": \"<string>\",\n      \"date\": \"<string>\",\n      \"topics\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sentiment\": \"Neutral\",\n      \"type\": \"<string>\",\n      \"tickers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"news_url\": \"<uri>\",\n      \"image_url\": \"<uri>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"source_name\": \"<string>\",\n      \"date\": \"<string>\",\n      \"topics\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sentiment\": \"Neutral\",\n      \"type\": \"<string>\",\n      \"tickers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"total_pages\": \"<integer>\",\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-10-22T01:32:33.000Z",
+              "updatedAt": "2026-10-22T01:32:33.000Z",
+              "uid": "35240-c495696d-ccf2-48dc-95c1-04f7bf14f554"
             },
             {
-              "id": "2e9a2d01-83de-4ec2-99ec-56b510f60093",
+              "id": "77af7f47-1f53-4ebd-bde3-f4099b97ef1e",
               "name": "Unauthorized - invalid or missing token",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "category"
-                  ],
+                  "raw": "{{baseUrl}}/category?section=alltickers&items=50&page=1&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "category"
+                  ],
                   "query": [
                     {
+                      "description": "(Required) Category section to filter by. Use 'general' for general crypto news or 'alltickers' for all ticker news.",
                       "key": "section",
-                      "value": "general"
+                      "value": "alltickers"
                     },
                     {
+                      "description": "Number of news articles to return per page (max 50).",
                       "key": "items",
                       "value": "50"
                     },
                     {
+                      "description": "Page number for pagination.",
                       "key": "page",
                       "value": "1"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:32:33.000Z",
+              "updatedAt": "2026-10-22T01:32:33.000Z",
+              "uid": "35240-77af7f47-1f53-4ebd-bde3-f4099b97ef1e"
             },
             {
-              "id": "27b0b0d0-9f48-4335-ac8e-8bb1e8f313bc",
+              "id": "6eefc156-01e3-4950-af44-17c557deebbe",
               "name": "Rate limit exceeded",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "category"
-                  ],
+                  "raw": "{{baseUrl}}/category?section=alltickers&items=50&page=1&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "category"
+                  ],
                   "query": [
                     {
+                      "description": "(Required) Category section to filter by. Use 'general' for general crypto news or 'alltickers' for all ticker news.",
                       "key": "section",
-                      "value": "general"
+                      "value": "alltickers"
                     },
                     {
+                      "description": "Number of news articles to return per page (max 50).",
                       "key": "items",
                       "value": "50"
                     },
                     {
+                      "description": "Page number for pagination.",
                       "key": "page",
                       "value": "1"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Too Many Requests",
               "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:32:33.000Z",
+              "updatedAt": "2026-10-22T01:32:33.000Z",
+              "uid": "35240-6eefc156-01e3-4950-af44-17c557deebbe"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:32:33.000Z",
+          "updatedAt": "2026-10-22T01:32:33.000Z",
+          "uid": "35240-f470a63f-40af-423b-b8ff-c8f2e7dfab07"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cryptonews-api.com/api/v1",
-      "key": "baseUrl"
+      "id": "9e218bee-217a-4477-9fe5-60e30a005e59",
+      "createdAt": "2026-10-22T01:32:33.000Z",
+      "updatedAt": "2026-10-22T01:32:33.000Z",
+      "uid": "35240-9e218bee-217a-4477-9fe5-60e30a005e59"
     }
   ],
   "auth": {
@@ -241,25 +235,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "token"
+        "value": "token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "fd37c5dd-6343-4276-b370-858f5ee70f23",
-    "name": "CryptoNews Account Categories API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cryptonews-api.com/api/v1"
     }
-  }
+  ]
 }

@@ -1,401 +1,392 @@
 {
+  "info": {
+    "_postman_id": "1ad2c1ba-0a89-48e2-8a71-adc66064382d",
+    "name": "CryptoNews Trending API",
+    "description": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:33:02.000Z",
+    "updatedAt": "2026-10-22T01:33:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1ad2c1ba-0a89-48e2-8a71-adc66064382d"
+  },
   "item": [
     {
-      "id": "5ae91dd2-dab5-40be-aa08-838b7c89bb6e",
-      "name": "Trending",
-      "description": {
-        "content": "Trending headlines and top mentions",
-        "type": "text/plain"
-      },
+      "name": "trending-headlines",
       "item": [
         {
-          "id": "15fe5d89-581b-4bf2-8d18-4b75968e0d08",
           "name": "Get Trending Headlines",
+          "id": "e6ff4b4e-d70a-4e45-92ee-7ac0e593da2b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Get Trending Headlines",
-            "description": {
-              "content": "Retrieve trending cryptocurrency news headlines. Optionally filter by specific ticker symbol.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/trending-headlines?ticker=<string>&page=1&token=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "trending-headlines"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "Cryptocurrency ticker symbol to filter trending headlines by.",
                   "key": "ticker",
-                  "value": "<string>",
-                  "description": "Cryptocurrency ticker symbol to filter trending headlines by."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Page number for pagination.",
                   "key": "page",
-                  "value": "1",
-                  "description": "Page number for pagination."
+                  "value": "1"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) API authentication token.",
                   "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) API authentication token."
+                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Retrieve trending cryptocurrency news headlines. Optionally filter by specific ticker symbol."
           },
           "response": [
             {
-              "id": "d82d2286-7206-4b4b-a595-48f01a6c8601",
+              "id": "4283a78a-b14d-4677-bac0-6cfaee215332",
               "name": "Successful response with trending headlines",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "trending-headlines"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "ticker",
-                      "value": "BTC"
-                    },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/trending-headlines?ticker=<string>&page=1&token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trending-headlines"
+                  ],
+                  "query": [
+                    {
+                      "description": "Cryptocurrency ticker symbol to filter trending headlines by.",
+                      "key": "ticker",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number for pagination.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "(Required) API authentication token.",
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"news_url\": \"https://IvPJncalkEaGAVf.ztjda,NAx8EajrQ5lzxXyAohVDZsPDp149fKNXEX3PFGQlFFdQRi8\",\n      \"image_url\": \"http://CKFybRdu.zpNIEsJC1zsGQt3WmI47YxRh9uELMIRRiduL,4UX6mZE-9qm79ku\",\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"source_name\": \"string\",\n      \"date\": \"string\",\n      \"topics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sentiment\": \"Positive\",\n      \"type\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"news_url\": \"https://swTEOLGRgZxMRvxYHmWBgOQdA.rfsiuKv3kk8dbcwj4-BbXiJa-ksDMFFi6J\",\n      \"image_url\": \"http://SqEYoH.pduiqY.E1fBjtA4kTii\",\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"source_name\": \"string\",\n      \"date\": \"string\",\n      \"topics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sentiment\": \"Negative\",\n      \"type\": \"string\",\n      \"tickers\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"total_pages\": 2297\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"news_url\": \"<uri>\",\n      \"image_url\": \"<uri>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"source_name\": \"<string>\",\n      \"date\": \"<string>\",\n      \"topics\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sentiment\": \"Negative\",\n      \"type\": \"<string>\",\n      \"tickers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"news_url\": \"<uri>\",\n      \"image_url\": \"<uri>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"source_name\": \"<string>\",\n      \"date\": \"<string>\",\n      \"topics\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sentiment\": \"Positive\",\n      \"type\": \"<string>\",\n      \"tickers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"total_pages\": \"<integer>\"\n}",
+              "createdAt": "2026-10-22T01:33:03.000Z",
+              "updatedAt": "2026-10-22T01:33:03.000Z",
+              "uid": "35240-4283a78a-b14d-4677-bac0-6cfaee215332"
             },
             {
-              "id": "b0cb9ff6-9c1b-42c1-b508-d94c68bf7666",
+              "id": "2f4c3bf5-9ead-4d25-89d8-0a179c230344",
               "name": "Unauthorized - invalid or missing token",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "trending-headlines"
-                  ],
+                  "raw": "{{baseUrl}}/trending-headlines?ticker=<string>&page=1&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "trending-headlines"
+                  ],
                   "query": [
                     {
+                      "description": "Cryptocurrency ticker symbol to filter trending headlines by.",
                       "key": "ticker",
-                      "value": "BTC"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Page number for pagination.",
                       "key": "page",
                       "value": "1"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:33:03.000Z",
+              "updatedAt": "2026-10-22T01:33:03.000Z",
+              "uid": "35240-2f4c3bf5-9ead-4d25-89d8-0a179c230344"
             },
             {
-              "id": "63ab6125-5338-4c2a-8530-885fc1c31ea2",
+              "id": "91fdd7f7-2717-4cfe-bc98-e7665a8bfc83",
               "name": "Rate limit exceeded",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "trending-headlines"
-                  ],
+                  "raw": "{{baseUrl}}/trending-headlines?ticker=<string>&page=1&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "trending-headlines"
+                  ],
                   "query": [
                     {
+                      "description": "Cryptocurrency ticker symbol to filter trending headlines by.",
                       "key": "ticker",
-                      "value": "BTC"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Page number for pagination.",
                       "key": "page",
                       "value": "1"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Too Many Requests",
               "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:33:03.000Z",
+              "updatedAt": "2026-10-22T01:33:03.000Z",
+              "uid": "35240-91fdd7f7-2717-4cfe-bc98-e7665a8bfc83"
             }
           ],
-          "event": [],
+          "createdAt": "2026-10-22T01:33:03.000Z",
+          "updatedAt": "2026-10-22T01:33:03.000Z",
+          "uid": "35240-e6ff4b4e-d70a-4e45-92ee-7ac0e593da2b"
+        }
+      ],
+      "id": "40906165-e6aa-49e7-880b-5b1e768a7d9b",
+      "createdAt": "2026-10-22T01:33:03.000Z",
+      "updatedAt": "2026-10-22T01:33:03.000Z",
+      "uid": "35240-40906165-e6aa-49e7-880b-5b1e768a7d9b"
+    },
+    {
+      "name": "top-mention",
+      "item": [
+        {
+          "name": "Get Top Mentioned Tickers",
+          "id": "c3279cee-b1a7-4ed4-a6dd-38eca7810c68",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0cf880f6-88e2-4f59-9c22-cbc9b9bd5102",
-          "name": "Get Top Mentioned Tickers",
+          },
           "request": {
-            "name": "Get Top Mentioned Tickers",
-            "description": {
-              "content": "Retrieve the most frequently mentioned cryptocurrency tickers over a specified date range.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/top-mention?date=last7days&token=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "top-mention"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "Date range for top mention data.",
                   "key": "date",
-                  "value": "<string>",
-                  "description": "Date range for top mention data."
+                  "value": "last7days"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) API authentication token.",
                   "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) API authentication token."
+                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Retrieve the most frequently mentioned cryptocurrency tickers over a specified date range."
           },
           "response": [
             {
-              "id": "c7fdc92d-2cce-4196-98e1-dd028c21403f",
+              "id": "2f7d48ab-36b9-4d28-bfc9-e2baea318b39",
               "name": "Successful response with top mentioned tickers",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "top-mention"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "date",
-                      "value": "last7days"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/top-mention?date=last7days&token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "top-mention"
+                  ],
+                  "query": [
+                    {
+                      "description": "Date range for top mention data.",
+                      "key": "date",
+                      "value": "last7days"
+                    },
+                    {
+                      "description": "(Required) API authentication token.",
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"ticker\": \"string\",\n      \"mention_count\": 251,\n      \"sentiment_score\": 411.76856331314184\n    },\n    {\n      \"ticker\": \"string\",\n      \"mention_count\": 8552,\n      \"sentiment_score\": 4533.070863912549\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"ticker\": \"<string>\",\n      \"mention_count\": \"<integer>\",\n      \"sentiment_score\": \"<number>\"\n    },\n    {\n      \"ticker\": \"<string>\",\n      \"mention_count\": \"<integer>\",\n      \"sentiment_score\": \"<number>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:33:03.000Z",
+              "updatedAt": "2026-10-22T01:33:03.000Z",
+              "uid": "35240-2f7d48ab-36b9-4d28-bfc9-e2baea318b39"
             },
             {
-              "id": "323dfc78-3eea-412f-a709-a54e47cd36f8",
+              "id": "cc6450ed-f117-4a59-85fa-2ec1435ffd2b",
               "name": "Unauthorized - invalid or missing token",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "top-mention"
-                  ],
+                  "raw": "{{baseUrl}}/top-mention?date=last7days&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "top-mention"
+                  ],
                   "query": [
                     {
+                      "description": "Date range for top mention data.",
                       "key": "date",
                       "value": "last7days"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:33:03.000Z",
+              "updatedAt": "2026-10-22T01:33:03.000Z",
+              "uid": "35240-cc6450ed-f117-4a59-85fa-2ec1435ffd2b"
             },
             {
-              "id": "67a92d7e-9d50-40bf-b5a6-1077826f391a",
+              "id": "56d4ad35-b7cb-447c-9fba-b7edfcab39b5",
               "name": "Rate limit exceeded",
               "originalRequest": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "top-mention"
-                  ],
+                  "raw": "{{baseUrl}}/top-mention?date=last7days&token=<API Key>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "top-mention"
+                  ],
                   "query": [
                     {
+                      "description": "Date range for top mention data.",
                       "key": "date",
                       "value": "last7days"
                     },
                     {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Too Many Requests",
               "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:33:03.000Z",
+              "updatedAt": "2026-10-22T01:33:03.000Z",
+              "uid": "35240-56d4ad35-b7cb-447c-9fba-b7edfcab39b5"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:33:03.000Z",
+          "updatedAt": "2026-10-22T01:33:03.000Z",
+          "uid": "35240-c3279cee-b1a7-4ed4-a6dd-38eca7810c68"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cryptonews-api.com/api/v1",
-      "key": "baseUrl"
+      "id": "baa8e86a-8292-4f0f-ae50-1fea268a2b6b",
+      "createdAt": "2026-10-22T01:33:03.000Z",
+      "updatedAt": "2026-10-22T01:33:03.000Z",
+      "uid": "35240-baa8e86a-8292-4f0f-ae50-1fea268a2b6b"
     }
   ],
   "auth": {
@@ -403,25 +394,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "token"
+        "value": "token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d7a68c65-e777-460f-b76a-d07097a04560",
-    "name": "CryptoNews Account Trending API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cryptonews-api.com/api/v1"
     }
-  }
+  ]
 }

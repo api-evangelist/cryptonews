@@ -1,189 +1,186 @@
 {
+  "info": {
+    "_postman_id": "49e4a11b-3613-478a-a236-0732bf746e11",
+    "name": "CryptoNews Account API",
+    "description": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:32:25.000Z",
+    "updatedAt": "2026-10-22T01:32:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-49e4a11b-3613-478a-a236-0732bf746e11"
+  },
   "item": [
     {
-      "id": "d29c1855-2895-4fe9-977a-b8e630e0cbcd",
-      "name": "Account",
-      "description": {
-        "content": "Account and reference data",
-        "type": "text/plain"
-      },
+      "name": "account",
       "item": [
         {
-          "id": "815165de-8e80-442f-9834-71dcca09ae97",
-          "name": "Get Supported Tickers Database",
-          "request": {
-            "name": "Get Supported Tickers Database",
-            "description": {
-              "content": "Retrieve the full database of supported cryptocurrency tickers available in the API.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "account",
-                "tickersdbv2"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) API authentication token."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "tickersdbv2",
+          "item": [
             {
-              "id": "1b2433b4-9603-4fcd-b02f-ac3d8dc0a78b",
-              "name": "Successful response with supported tickers",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "account",
-                    "tickersdbv2"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "Get Supported Tickers Database",
+              "id": "89013a06-375d-4bd5-9a9a-ef5cbd5320b3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"ticker\": \"string\",\n      \"name\": \"string\",\n      \"logo\": \"https://JeCkCvetKQgxowdsckP.ryumHr4rz2Y7HcfpAHiT.uABfUfVcK-EFTrIbwwsNFj0STv8WqWPiXLllYVMNs7DUekcRI\"\n    },\n    {\n      \"ticker\": \"string\",\n      \"name\": \"string\",\n      \"logo\": \"http://msL.tgjeA5KyV.QoTJJSjR13sqTC5-YN8SnR+qv58wG\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "eb25e4a0-0442-4ed1-9127-87ccb7f70c1a",
-              "name": "Unauthorized - invalid or missing token",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/account/tickersdbv2?token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "account",
                     "tickersdbv2"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) API authentication token.",
                       "key": "token",
                       "value": "<string>"
-                    },
+                    }
+                  ]
+                },
+                "description": "Retrieve the full database of supported cryptocurrency tickers available in the API."
+              },
+              "response": [
+                {
+                  "id": "801f8ca9-6aa2-40b3-a6b4-175f628ca00f",
+                  "name": "Successful response with supported tickers",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/tickersdbv2?token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "tickersdbv2"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API authentication token.",
+                          "key": "token",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "token",
-                      "value": "<API Key>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"ticker\": \"<string>\",\n      \"name\": \"<string>\",\n      \"logo\": \"<uri>\"\n    },\n    {\n      \"ticker\": \"<string>\",\n      \"name\": \"<string>\",\n      \"logo\": \"<uri>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T01:32:26.000Z",
+                  "updatedAt": "2026-10-22T01:32:26.000Z",
+                  "uid": "35240-801f8ca9-6aa2-40b3-a6b4-175f628ca00f"
                 },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "802d9a1d-a9c5-4345-b158-744e58ce41b4",
-              "name": "Rate limit exceeded",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "account",
-                    "tickersdbv2"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "token",
-                      "value": "<API Key>"
+                  "id": "4b83ce2f-cdc9-4067-be6d-2e1370dbefe8",
+                  "name": "Unauthorized - invalid or missing token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/tickersdbv2?token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "tickersdbv2"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API authentication token.",
+                          "key": "token",
+                          "value": "<API Key>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:32:26.000Z",
+                  "updatedAt": "2026-10-22T01:32:26.000Z",
+                  "uid": "35240-4b83ce2f-cdc9-4067-be6d-2e1370dbefe8"
                 },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "ba911933-b2e8-4ce3-ae2d-95bf0133ec9f",
+                  "name": "Rate limit exceeded",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/tickersdbv2?token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "tickersdbv2"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API authentication token.",
+                          "key": "token",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:32:26.000Z",
+                  "updatedAt": "2026-10-22T01:32:26.000Z",
+                  "uid": "35240-ba911933-b2e8-4ce3-ae2d-95bf0133ec9f"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T01:32:26.000Z",
+              "updatedAt": "2026-10-22T01:32:26.000Z",
+              "uid": "35240-89013a06-375d-4bd5-9a9a-ef5cbd5320b3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "bab0755c-10b0-4223-80f1-aba48bac5f0c",
+          "createdAt": "2026-10-22T01:32:26.000Z",
+          "updatedAt": "2026-10-22T01:32:26.000Z",
+          "uid": "35240-bab0755c-10b0-4223-80f1-aba48bac5f0c"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cryptonews-api.com/api/v1",
-      "key": "baseUrl"
+      "id": "665e785b-80b9-4c83-b6b1-7879da04b32f",
+      "createdAt": "2026-10-22T01:32:26.000Z",
+      "updatedAt": "2026-10-22T01:32:26.000Z",
+      "uid": "35240-665e785b-80b9-4c83-b6b1-7879da04b32f"
     }
   ],
   "auth": {
@@ -191,25 +188,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "token"
+        "value": "token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "2bad2417-a7ae-4410-8738-c842c625fffa",
-    "name": "CryptoNews Account API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API aggregating cryptocurrency news, Bitcoin sentiment analysis, and crypto market news from 50+ sources with filtering by currency and time range. Provides AI-powered sentiment analysis, delayed pricing for 600+ coins, whale transaction tracking, and historical data from December 2020.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cryptonews-api.com/api/v1"
     }
-  }
+  ]
 }
